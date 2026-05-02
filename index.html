@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Elvis Almeida — Design Lead & UX Coordinator</title>
+<meta name="description" content="Elvis Almeida — Design Lead, Coordenador de UX/Criação e Gestor de Equipes Criativas com mais de 10 anos de experiência."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..800;1,9..144,200..800&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300..500;1,9..40,300..500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Elvis<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#portfolio" data-pt="Portfólio" data-en="Portfolio">Portfólio</a></li>
+    <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+    <li><a href="#experience" data-pt="Experiência" data-en="Experience">Experiência</a></li>
+    <li><a href="#contact" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="toggle-theme" id="btnTheme" aria-label="Alternar tema"></button>
+    <button class="toggle-lang" id="btnLang" aria-label="Trocar idioma">EN</button>
+    <button class="nav-ham" id="btnHam" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div id="mob-menu">
+  <a href="#portfolio" onclick="closeMob()" data-pt="Portfólio" data-en="Portfolio">Portfólio</a>
+  <a href="#about" onclick="closeMob()" data-pt="Sobre" data-en="About">Sobre</a>
+  <a href="#experience" onclick="closeMob()" data-pt="Experiência" data-en="Experience">Experiência</a>
+  <a href="#contact" onclick="closeMob()" data-pt="Contato" data-en="Contact">Contato</a>
+  <div class="mob-controls">
+    <button class="toggle-theme" data-toggle-theme></button>
+    <button class="toggle-lang" data-toggle-lang>EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-body">
+    <div>
+      <p class="hero-kicker rv" data-pt="Design Lead · UX Coordinator · ES, Brasil" data-en="Design Lead · UX Coordinator · ES, Brazil">Design Lead · UX Coordinator · ES, Brasil</p>
+      <h1 class="hero-name rv">Elvis<br><em>Almeida</em></h1>
+      <p class="hero-role rv" data-pt="Coordenador de UX / Criação · Design Lead · Gestor de Equipes Criativas" data-en="UX / Creative Coordinator · Design Lead · Creative Teams Manager">Coordenador de UX / Criação · Design Lead · Gestor de Equipes Criativas</p>
+      <div class="hero-quote rv">
+        <p>"Even the best designers produce successful products only if their designs solve the right problems. A wonderful interface to the wrong features will fail."</p>
+        <cite>— Jakob Nielsen</cite>
+      </div>
+      <div class="hero-btns rv">
+        <a href="#portfolio" class="btn-fill" data-pt="Ver portfólio" data-en="View portfolio">Ver portfólio</a>
+        <a href="#contact" class="btn-ghost" data-pt="Fale comigo" data-en="Get in touch">Fale comigo</a>
+      </div>
+    </div>
+    <div class="hero-card-wrap rv">
+      <div class="hero-card">
+        <div class="hcard-bar">
+          <div class="hcard-dots">
+            <div class="hcard-dot" style="background:#c94f3b"></div>
+            <div class="hcard-dot" style="background:#d4a853"></div>
+            <div class="hcard-dot" style="background:#3d7a5c"></div>
+          </div>
+          <div class="hcard-url">elvisalmeida.com.br</div>
+        </div>
+        <div class="hcard-body">
+          <p class="hcard-label" data-pt="Design em progresso" data-en="Design in progress">Design em progresso</p>
+          <p class="hcard-title" data-pt="Experiências que resolvem os problemas certos." data-en="Experiences that solve the right problems.">Experiências que resolvem os problemas certos.</p>
+          <div class="hcard-wire">
+            <div class="hw-row"><div class="hw-block accent"></div></div>
+            <div class="hw-row two"><div class="hw-block"></div><div class="hw-block"></div></div>
+            <div class="hw-row three"><div class="hw-block short"></div><div class="hw-block short"></div><div class="hw-block short"></div></div>
+          </div>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">Design System</span><span class="tag">IA Generativa</span></div>
+        </div>
+      </div>
+      <div class="hero-badge hb-a">
+        <p class="hb-label" data-pt="Projetos" data-en="Projects">Projetos</p>
+        <p class="hb-val">50+</p>
+        <p class="hb-sub" data-pt="entregues" data-en="delivered">entregues</p>
+      </div>
+      <div class="hero-badge hb-b">
+        <p class="hb-label">Team Lead</p>
+        <p class="hb-val" style="font-size:17px" data-pt="Equipes" data-en="Teams">Equipes</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="hero-stats">
+      <div><span class="hs-n">10+</span><span class="hs-l" data-pt="Anos de exp." data-en="Years exp.">Anos de exp.</span></div>
+      <div><span class="hs-n">50+</span><span class="hs-l" data-pt="Projetos" data-en="Projects">Projetos</span></div>
+      <div><span class="hs-n">3+</span><span class="hs-l" data-pt="Sites ao vivo" data-en="Live sites">Sites ao vivo</span></div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div><span data-pt="Scroll" data-en="Scroll">Scroll</span></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="sec-pad">
+  <div class="sec-header rv">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title" data-pt-html="Porta<em>fólio</em>" data-en-html="Port<em>folio</em>">Porta<em>fólio</em></h2>
+    <div class="sec-hr"></div>
+    <p class="sec-sub" data-pt="Projetos em UX, Marca, Criativos e Impressos." data-en="Projects in UX, Brand, Creatives and Print.">Projetos em UX, Marca, Criativos e Impressos.</p>
+  </div>
+
+  <div class="ptabs">
+    <button class="ptab active" data-tab="ux" data-pt="UX / Produto" data-en="UX / Product">UX / Produto</button>
+    <button class="ptab" data-tab="marca" data-pt="Marca & Identidade" data-en="Brand & Identity">Marca & Identidade</button>
+    <button class="ptab" data-tab="criativos" data-pt="Criativos & Social" data-en="Creatives & Social">Criativos & Social</button>
+    <button class="ptab" data-tab="impressos" data-pt="Impressos" data-en="Print">Impressos</button>
+  </div>
+
+  <!-- UX -->
+  <div class="ppanel active" id="panel-ux">
+    <div class="feat rv">
+      <a class="feat-img" href="projects/ibira.html">
+        <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem do projeto" data-en="Project image">Imagem do projeto</span></div>
+      </a>
+      <div class="feat-info">
+        <div>
+          <p class="feat-cat" data-pt="Site Institucional · UX/UI" data-en="Institutional Website · UX/UI">Site Institucional · UX/UI</p>
+          <h3 class="feat-title">Instituto <em>Ibira</em></h3>
+          <p class="feat-desc" data-pt="Projeto completo de UX e design para o site do Instituto Ibira. Coprodução colaborativa com pesquisa, arquitetura de informação, UI design e entrega em produção com Claude Code." data-en="Complete UX and design for Instituto Ibira's website. Collaborative co-production with research, IA, UI design and production delivery via Claude Code.">Projeto completo de UX e design para o site do Instituto Ibira. Coprodução colaborativa com pesquisa, arquitetura de informação, UI design e entrega em produção com Claude Code.</p>
+          <ul class="feat-delivs">
+            <li data-pt="UX Research & Estratégia" data-en="UX Research & Strategy">UX Research & Estratégia</li>
+            <li data-pt="UI Design no Figma" data-en="UI Design in Figma">UI Design no Figma</li>
+            <li data-pt="Co-produção com Head Lucas Morimoto" data-en="Co-production with Lucas Morimoto">Co-produção com Head Lucas Morimoto</li>
+            <li data-pt="Desenvolvimento via Claude Code — Felipe Gaiguer" data-en="Development via Claude Code — Felipe Gaiguer">Desenvolvimento via Claude Code — Felipe Gaiguer</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:16px"><span class="tag">UX/UI</span><span class="tag">Figma</span><span class="tag">Claude Code</span><span class="tag">Institucional</span></div>
+          <a href="projects/ibira.html" class="text-link" data-pt="Ver case completo →" data-en="View full case →">Ver case completo →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat feat-rev rv">
+      <a class="feat-img" href="projects/rwi.html">
+        <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem do projeto" data-en="Project image">Imagem do projeto</span></div>
+      </a>
+      <div class="feat-info feat-info-rev">
+        <div>
+          <p class="feat-cat" data-pt="Plataforma Digital · UX" data-en="Digital Platform · UX">Plataforma Digital · UX</p>
+          <h3 class="feat-title">Rethinking <em>Wine</em></h3>
+          <p class="feat-desc" data-pt="LP de lançamento e coordenação da plataforma de comunidade RWI. Design estratégico, prototipagem e acompanhamento da entrega final." data-en="RWI launch LP and community platform coordination. Strategic design, prototyping and delivery follow-through.">LP de lançamento e coordenação da plataforma de comunidade RWI. Design estratégico, prototipagem e acompanhamento da entrega final.</p>
+          <ul class="feat-delivs">
+            <li data-pt="UX Strategy & Design Lead" data-en="UX Strategy & Design Lead">UX Strategy & Design Lead</li>
+            <li data-pt="Landing page de lançamento" data-en="Launch landing page">Landing page de lançamento</li>
+            <li data-pt="Coordenação da plataforma de comunidade" data-en="Community platform coordination">Coordenação da plataforma de comunidade</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags" style="margin-bottom:16px"><span class="tag">UX/UI</span><span class="tag">Lançamento</span><span class="tag">Comunidade</span></div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <a href="projects/rwi.html" class="text-link" data-pt="Ver case →" data-en="View case →">Ver case →</a>
+            <a href="https://launch.rethinkingwine.app/" target="_blank" class="text-link" style="color:var(--text2);border-color:var(--line2)" data-pt="Site ao vivo ↗" data-en="Live site ↗">Site ao vivo ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pgrid pgrid-3 rv">
+      <a class="pcard" href="projects/mydeli.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="E-commerce · UX" data-en="E-commerce · UX">E-commerce · UX</span><h3 class="pcard-title">My Deli Market</h3><p class="pcard-desc" data-pt="Redesign do e-commerce para grocerant omnichannel. Análise e reconfiguração das páginas de compra." data-en="E-commerce redesign for omnichannel grocerant.">Redesign do e-commerce para grocerant omnichannel.</p><div class="tags"><span class="tag">UX</span><span class="tag">E-commerce</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/cpapmed.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="E-commerce · Saúde" data-en="E-commerce · Health">E-commerce · Saúde</span><h3 class="pcard-title">CPAP Med</h3><p class="pcard-desc" data-pt="Design do e-commerce em Magento 2 para equipamentos médicos CPAP." data-en="Magento 2 e-commerce design for CPAP medical equipment.">Design do e-commerce Magento 2 para equipamentos CPAP.</p><div class="tags"><span class="tag">E-commerce</span><span class="tag">Saúde</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/memorizart.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Site · UX/UI" data-en="Website · UX/UI">Site · UX/UI</span><h3 class="pcard-title">Memorizart</h3><p class="pcard-desc" data-pt="Site para plataforma criativa com conceito visual forte e UX mapeado." data-en="Website for creative platform with strong visual concept.">Site para plataforma criativa com conceito visual forte.</p><div class="tags"><span class="tag">UX/UI</span><span class="tag">Web</span></div><span class="pcard-arrow">→</span></div></a>
+    </div>
+    <div class="pgrid pgrid-2 rv">
+      <a class="pcard" href="projects/wifipro.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Site · Telecom" data-en="Website · Telecom">Site · Telecom</span><h3 class="pcard-title">Wifi-Pró</h3><p class="pcard-desc" data-pt="Site e mídias para provedor de internet, com foco em clareza e conversão." data-en="Website and media for ISP, focused on clarity and conversion.">Site e mídias para provedor de internet.</p><div class="tags"><span class="tag">Web</span><span class="tag">Mídias</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/cardapio.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Cardápio Digital" data-en="Digital Menu">Cardápio Digital</span><h3 class="pcard-title" data-pt="Cardápio My Deli" data-en="My Deli Menu">Cardápio My Deli</h3><p class="pcard-desc" data-pt="Cardápio digital e social media para o My Deli Market." data-en="Digital menu and social media for My Deli Market.">Cardápio digital e peças de social para o My Deli Market.</p><div class="tags"><span class="tag">Cardápio</span><span class="tag">Social</span></div><span class="pcard-arrow">→</span></div></a>
+    </div>
+  </div>
+
+  <!-- MARCA -->
+  <div class="ppanel" id="panel-marca">
+    <div class="pgrid pgrid-3 rv" style="border-top:0.5px solid var(--line)">
+      <a class="pcard" href="projects/vocis.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Branding</span><h3 class="pcard-title">Vocis Brandbook</h3><p class="pcard-desc" data-pt="Identidade visual completa com brandbook, sistema visual e guidelines." data-en="Complete visual identity with brandbook and guidelines.">Identidade visual completa com brandbook e guidelines.</p><div class="tags"><span class="tag">Identidade</span><span class="tag">Brandbook</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/evolutec.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Branding · Tech</span><h3 class="pcard-title">Evolutec Brandbook</h3><p class="pcard-desc" data-pt="Identidade e brandbook para empresa de tecnologia com sistema escalável." data-en="Identity and brandbook for tech company with scalable system.">Identidade e brandbook para empresa de tecnologia.</p><div class="tags"><span class="tag">Tech</span><span class="tag">System</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/cerrado.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Branding · Conceito" data-en="Branding · Concept">Branding · Conceito</span><h3 class="pcard-title">Essência do Cerrado</h3><p class="pcard-desc" data-pt="Conceito de marca e pitch para construtora Tenda." data-en="Brand concept and pitch for Construtora Tenda.">Conceito de marca e pitch para a Construtora Tenda.</p><div class="tags"><span class="tag">Conceito</span><span class="tag">Pitch</span></div><span class="pcard-arrow">→</span></div></a>
+    </div>
+    <div class="pgrid pgrid-2 rv">
+      <a class="pcard" href="https://www.behance.net/gallery/48863623/Identidade-Visual-Reformar" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Identidade Visual</span><h3 class="pcard-title">Reformar</h3><p class="pcard-desc" data-pt="Identidade completa para empresa de reformas." data-en="Complete identity for a renovation company.">Identidade completa para empresa de reformas.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Branding</span></div><span class="pcard-arrow">↗</span></div></a>
+      <a class="pcard" href="https://www.behance.net/gallery/48826839/Identidade-visual-Dani-Argolo" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Marca Pessoal</span><h3 class="pcard-title">Dani Argôlo</h3><p class="pcard-desc" data-pt="Marca pessoal para profissional criativa." data-en="Personal brand for a creative professional.">Marca pessoal para profissional criativa.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Marca Pessoal</span></div><span class="pcard-arrow">↗</span></div></a>
+    </div>
+    <div class="pgrid pgrid-2 rv">
+      <a class="pcard" href="https://www.behance.net/gallery/48837005/Identidade-Visual-RSF" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Identidade Visual</span><h3 class="pcard-title">RSF</h3><p class="pcard-desc" data-pt="Marca e sistema visual para RSF." data-en="Brand and visual system for RSF.">Marca e sistema visual para RSF.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Identidade</span></div><span class="pcard-arrow">↗</span></div></a>
+      <a class="pcard" href="https://www.behance.net/gallery/48833097/Identidade-Visual-Dungeon-Capixaba" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Identidade Visual</span><h3 class="pcard-title">Dungeon Capixaba</h3><p class="pcard-desc" data-pt="Identidade para evento de cultura geek/RPG." data-en="Identity for a geek/RPG culture event.">Identidade para evento de cultura geek/RPG.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Eventos</span></div><span class="pcard-arrow">↗</span></div></a>
+    </div>
+  </div>
+
+  <!-- CRIATIVOS -->
+  <div class="ppanel" id="panel-criativos">
+    <div class="pgrid pgrid-3 rv" style="border-top:0.5px solid var(--line)">
+      <a class="pcard" href="projects/foozi.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat">Social Media</span><h3 class="pcard-title">Foozi Social</h3><p class="pcard-desc" data-pt="Peças para redes sociais com linguagem visual coesa." data-en="Social media pieces with cohesive visual language.">Sistema de peças para redes sociais da Foozi.</p><div class="tags"><span class="tag">Social</span><span class="tag">Feed</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="https://www.behance.net/gallery/48827111/Comunicacao-Visual-Adore-Pet" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Comunicação Visual" data-en="Visual Communication">Comunicação Visual</span><h3 class="pcard-title">Adore Pet</h3><p class="pcard-desc" data-pt="Comunicação visual para Adore Pet." data-en="Visual communication for Adore Pet.">Comunicação visual para Adore Pet.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Comunicação</span></div><span class="pcard-arrow">↗</span></div></a>
+      <a class="pcard" href="https://www.behance.net/gallery/48834357/Comunicacao-Institucional-Academia-Gavioes" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Comunicação Institucional" data-en="Institutional Communication">Comunicação Institucional</span><h3 class="pcard-title">Academia Gaviões</h3><p class="pcard-desc" data-pt="Comunicação institucional para academia." data-en="Institutional communication for a gym.">Comunicação institucional para academia.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Institucional</span></div><span class="pcard-arrow">↗</span></div></a>
+    </div>
+  </div>
+
+  <!-- IMPRESSOS -->
+  <div class="ppanel" id="panel-impressos">
+    <div class="pgrid pgrid-3 rv" style="border-top:0.5px solid var(--line)">
+      <a class="pcard" href="projects/foozi.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Impressos · Foozi" data-en="Print · Foozi">Impressos · Foozi</span><h3 class="pcard-title" data-pt="Materiais Foozi" data-en="Foozi Print">Materiais Foozi</h3><p class="pcard-desc" data-pt="Folders, flyers e PDV para Foozi." data-en="Folders, flyers and POS for Foozi.">Folders, flyers e PDV para Foozi.</p><div class="tags"><span class="tag">Folder</span><span class="tag">PDV</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="projects/cardapio.html"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Cardápio Impresso" data-en="Printed Menu">Cardápio Impresso</span><h3 class="pcard-title" data-pt="Cardápio My Deli" data-en="My Deli Menu">Cardápio My Deli</h3><p class="pcard-desc" data-pt="Cardápio impresso com curadoria visual." data-en="Printed menu with visual curation.">Cardápio impresso com curadoria visual.</p><div class="tags"><span class="tag">Cardápio</span><span class="tag">Editorial</span></div><span class="pcard-arrow">→</span></div></a>
+      <a class="pcard" href="https://www.behance.net/gallery/48837005/Identidade-Visual-RSF" target="_blank"><div class="pcard-thumb"><div class="img-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span data-pt="Imagem" data-en="Image">Imagem</span></div></div><div class="pcard-body"><span class="pcard-cat" data-pt="Identidade · Impressos" data-en="Identity · Print">Identidade · Impressos</span><h3 class="pcard-title">RSF</h3><p class="pcard-desc" data-pt="Identidade e aplicações em impressos para RSF." data-en="Identity and print applications for RSF.">Identidade e aplicações em impressos para RSF.</p><div class="tags"><span class="tag">Behance</span><span class="tag">Impressos</span></div><span class="pcard-arrow">↗</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec-pad">
+  <div class="sec-header rv">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title" data-pt-html="Sobre <em>mim</em>" data-en-html="About <em>me</em>">Sobre <em>mim</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-sticky rv2">
+      <div class="portrait">
+        <div class="portrait-ph">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span data-pt="Sua foto aqui" data-en="Your photo here">Sua foto aqui</span>
+        </div>
+        <div class="portrait-badge">
+          <p class="pb-name">Elvis Almeida</p>
+          <p class="pb-role" data-pt="Design Lead · Cariacica, ES" data-en="Design Lead · Cariacica, ES">Design Lead · Cariacica, ES</p>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-icon">✦</div>
+        <div>
+          <p class="ai-title" data-pt="IA no processo criativo" data-en="AI in the creative process">IA no processo criativo</p>
+          <p class="ai-text" data-pt="Midjourney, Claude, ChatGPT e Stable Diffusion em todas as etapas — do conceito à entrega." data-en="Midjourney, Claude, ChatGPT and Stable Diffusion at every stage — from concept to delivery.">Midjourney, Claude, ChatGPT e Stable Diffusion em todas as etapas — do conceito à entrega.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-content rv">
+      <p class="about-intro" data-pt-html='Designer que acredita que bom design <em>resolve</em> — não apenas decora.' data-en-html='Designer who believes good design <em>solves</em> — it does not merely decorate.'>Designer que acredita que bom design <em>resolve</em> — não apenas decora.</p>
+      <div class="about-body">
+        <p data-pt="Com mais de 10 anos de atuação, passei por todas as etapas: do pixel ao estratégico. Hoje, como Design Lead, meu trabalho é criar e orquestrar — liderar equipes, definir processos e conectar design com resultados de negócio." data-en="With over 10 years in the field, I've worked at every level: from pixel to strategy. As Design Lead, my work is about creating and orchestrating — leading teams, defining processes and connecting design to business outcomes.">Com mais de 10 anos de atuação, passei por todas as etapas: do pixel ao estratégico. Hoje, como Design Lead, meu trabalho é criar e orquestrar — liderar equipes, definir processos e conectar design com resultados de negócio.</p>
+        <p data-pt="Minha base é UX sólido — pesquisa, arquitetura de informação, prototipagem e testes. Meu diferencial é a visão de produto: liderança de design não é sobre fazer tudo, mas garantir que o time entregue o que importa." data-en="My foundation is solid UX — research, information architecture, prototyping and testing. My differentiator is product vision: design leadership isn't about doing everything, but ensuring the team delivers what matters.">Minha base é UX sólido — pesquisa, arquitetura de informação, prototipagem e testes. Meu diferencial é a visão de produto: liderança de design não é sobre fazer tudo, mas garantir que o time entregue o que importa.</p>
+      </div>
+      <div class="leadership">
+        <p class="lead-tag" data-pt="Liderança Criativa" data-en="Creative Leadership">Liderança Criativa</p>
+        <p class="lead-title" data-pt="Gestão de equipes criativas com foco em resultado" data-en="Creative team management focused on outcomes">Gestão de equipes criativas com foco em resultado</p>
+        <p class="lead-body" data-pt="Sólida experiência na liderança de times multidisciplinares, equilibrando visão estratégica, processos ágeis e desenvolvimento de pessoas." data-en="Solid experience leading multidisciplinary teams, balancing strategic vision, agile processes and people development.">Sólida experiência na liderança de times multidisciplinares, equilibrando visão estratégica, processos ágeis e desenvolvimento de pessoas.</p>
+        <ul class="lead-list">
+          <li data-pt="Estruturação de times criativos — processos, rituais e cultura" data-en="Building creative teams — processes, rituals and culture">Estruturação de times criativos — processos, rituais e cultura</li>
+          <li data-pt="Gestão de stakeholders e alinhamento design-negócio" data-en="Stakeholder management and design-business alignment">Gestão de stakeholders e alinhamento design-negócio</li>
+          <li data-pt="Implementação de Design Systems escaláveis" data-en="Scalable Design Systems implementation">Implementação de Design Systems escaláveis</li>
+          <li data-pt="Mentoria e desenvolvimento de designers" data-en="Designer mentoring and development">Mentoria e desenvolvimento de designers</li>
+        </ul>
+      </div>
+      <div class="skills-grid">
+        <div class="sk"><p class="sk-n">UX Research</p><p class="sk-s" data-pt="Entrevistas, testes, jornadas" data-en="Interviews, testing, journeys">Entrevistas, testes, jornadas</p></div>
+        <div class="sk"><p class="sk-n">UI Design</p><p class="sk-s" data-pt="Figma, sistemas, prototipagem" data-en="Figma, systems, prototyping">Figma, sistemas, prototipagem</p></div>
+        <div class="sk"><p class="sk-n">Branding</p><p class="sk-s" data-pt="Identidade, brandbook, guidelines" data-en="Identity, brandbook, guidelines">Identidade, brandbook, guidelines</p></div>
+        <div class="sk"><p class="sk-n">Design Lead</p><p class="sk-s" data-pt="Gestão criativa, estratégia" data-en="Creative management, strategy">Gestão criativa, estratégia</p></div>
+        <div class="sk"><p class="sk-n">IA Generativa</p><p class="sk-s">Midjourney · Claude · ChatGPT</p></div>
+        <div class="sk"><p class="sk-n">Motion / Visual</p><p class="sk-s">After Effects · Illustrator · Ps</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec-pad sec-bg2">
+  <div class="sec-header rv">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title" data-pt-html="Experi<em>ência</em>" data-en-html="Experi<em>ence</em>">Experi<em>ência</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div class="exp-row rv">
+    <p class="exp-date" data-pt="Atual" data-en="Current">Atual</p>
+    <div><h3 class="exp-role" data-pt="Coordenador de UX & Criação" data-en="UX & Creative Coordinator">Coordenador de UX & Criação</h3><p class="exp-co">Briefcase Wine</p><p class="exp-desc" data-pt="Liderança da área de UX e criação, coordenando equipes multidisciplinares e definindo diretrizes de design para produtos digitais e físicos. Responsável pela estratégia visual da marca." data-en="Leadership of UX and creative, coordinating multidisciplinary teams and defining design guidelines for digital and physical products.">Liderança da área de UX e criação, coordenando equipes multidisciplinares e definindo diretrizes de design para produtos digitais e físicos. Responsável pela estratégia visual da marca.</p></div>
+  </div>
+  <div class="exp-row rv">
+    <p class="exp-date" data-pt="Recente" data-en="Recent">Recente</p>
+    <div><h3 class="exp-role">Design Lead</h3><p class="exp-co" data-pt="Projetos Selecionados · Freelance" data-en="Selected Projects · Freelance">Projetos Selecionados · Freelance</p><p class="exp-desc" data-pt="Design Lead em projetos de alto impacto: plataformas digitais (RWI, CPAPMed), identidades estratégicas (Vocis, Evolutec, Essência do Cerrado) e sites institucionais (Instituto Ibira)." data-en="Design Lead on high-impact projects: digital platforms (RWI, CPAPMed), strategic identities (Vocis, Evolutec, Essência do Cerrado) and institutional websites (Instituto Ibira).">Design Lead em projetos de alto impacto: plataformas digitais (RWI, CPAPMed), identidades estratégicas (Vocis, Evolutec, Essência do Cerrado) e sites institucionais (Instituto Ibira).</p></div>
+  </div>
+  <div class="exp-row rv">
+    <p class="exp-date" data-pt="Base" data-en="Foundation">Base</p>
+    <div><h3 class="exp-role" data-pt="Designer Gráfico & Visual" data-en="Graphic & Visual Designer">Designer Gráfico & Visual</h3><p class="exp-co" data-pt="Identidades, Comunicação & Branding" data-en="Identities, Communication & Branding">Identidades, Comunicação & Branding</p><p class="exp-desc" data-pt="Base em design gráfico: Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. Fundação que informa toda a produção de UX atual." data-en="Graphic design foundation: Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. Foundation that informs all current UX work.">Base em design gráfico: Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. Fundação que informa toda a produção de UX atual.</p></div>
+  </div>
+  <div class="exp-row rv">
+    <p class="exp-date" data-pt="Contínuo" data-en="Ongoing">Contínuo</p>
+    <div><h3 class="exp-role" data-pt="IA Generativa Aplicada" data-en="Applied Generative AI">IA Generativa Aplicada</h3><p class="exp-co" data-pt="Fluxo criativo & Produção" data-en="Creative Workflow & Production">Fluxo criativo & Produção</p><p class="exp-desc" data-pt="IA generativa em todo o processo: pesquisa visual, geração de conceitos, refinamento de interfaces e copywriting. Midjourney, Claude Code, ChatGPT e Stable Diffusion como parceiros permanentes." data-en="Generative AI across the process: visual research, concept generation, interface refinement and copywriting. Midjourney, Claude Code, ChatGPT and Stable Diffusion as permanent partners.">IA generativa em todo o processo: pesquisa visual, geração de conceitos, refinamento de interfaces e copywriting. Midjourney, Claude Code, ChatGPT e Stable Diffusion como parceiros permanentes.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-pad">
+  <div class="sec-header rv">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title" data-pt-html="Vamos <em>criar</em>" data-en-html="Let's <em>create</em>">Vamos <em>criar</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="rv2">
+      <p class="contact-head" data-pt-html="Tem um projeto<br>em <em>mente</em>?" data-en-html="Got a project<br>in <em>mind</em>?">Tem um projeto<br>em <em>mente</em>?</p>
+      <p class="contact-sub" data-pt="Estou sempre aberto a projetos, colaborações e conversas sobre design, liderança criativa e UX." data-en="I'm always open to projects, collaborations and conversations about design, creative leadership and UX.">Estou sempre aberto a projetos, colaborações e conversas sobre design, liderança criativa e UX.</p>
+    </div>
+    <div class="clinks rv">
+      <a href="https://www.linkedin.com/in/elvis-almeida-10427256/" target="_blank" rel="noopener" class="clink"><div><span class="cl-label" data-pt="Rede Profissional" data-en="Professional Network">Rede Profissional</span><span class="cl-name">LinkedIn</span></div><span class="cl-arr">→</span></a>
+      <a href="mailto:elvis.arte@gmail.com" class="clink"><div><span class="cl-label">Email</span><span class="cl-name">elvis.arte@gmail.com</span></div><span class="cl-arr">→</span></a>
+      <a href="tel:+5527981730694" class="clink"><div><span class="cl-label" data-pt="WhatsApp / Telefone" data-en="WhatsApp / Phone">WhatsApp / Telefone</span><span class="cl-name">+55 27 98173-0694</span></div><span class="cl-arr">→</span></a>
+      <a href="https://www.behance.net/elvisarteefc4" target="_blank" rel="noopener" class="clink"><div><span class="cl-label" data-pt="Portfólio Visual" data-en="Visual Portfolio">Portfólio Visual</span><span class="cl-name">Behance</span></div><span class="cl-arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p class="footer-copy" data-pt="© 2025 Elvis Almeida — Design Lead & UX Coordinator" data-en="© 2025 Elvis Almeida — Design Lead & UX Coordinator">© 2025 Elvis Almeida — Design Lead & UX Coordinator</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/elvis-almeida-10427256/" target="_blank">LinkedIn</a>
+    <a href="https://www.behance.net/elvisarteefc4" target="_blank">Behance</a>
+    <a href="#hero" data-pt="Topo ↑" data-en="Top ↑">Topo ↑</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

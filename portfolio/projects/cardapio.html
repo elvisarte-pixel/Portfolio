@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Instituto Ibira — Elvis Almeida</title>
+<link rel="stylesheet" href="../style.css"/>
+<style>
+.proj-hero{min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--h) + 60px) var(--pad) 60px;position:relative;overflow:hidden;background:var(--bg2)}
+.proj-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 60% 30%,rgba(61,122,92,.08) 0%,transparent 70%);pointer-events:none}
+.proj-hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.4}
+.proj-back{position:absolute;top:calc(var(--h) + 20px);left:var(--pad);font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text2);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+.proj-back:hover{color:var(--text)}
+.proj-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:end}
+.proj-category{font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.proj-category::before{content:'';width:20px;height:1px;background:var(--accent)}
+.proj-title{font-family:var(--f-d);font-size:clamp(42px,6vw,86px);font-weight:200;line-height:.92;letter-spacing:-.035em;font-variation-settings:'opsz' 72;margin-bottom:20px}
+.proj-title em{font-style:italic;color:var(--accent)}
+.proj-subtitle{font-size:16px;color:var(--text2);line-height:1.7;max-width:500px}
+.proj-meta-list{display:flex;flex-direction:column;gap:18px}
+.proj-meta-item{display:flex;flex-direction:column;gap:3px;border-top:0.5px solid var(--line);padding-top:16px}
+.proj-meta-label{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text3)}
+.proj-meta-val{font-size:15px;color:var(--text);font-weight:300}
+.proj-meta-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+/* case sections */
+.case-body{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+.case-section{padding:clamp(60px,10vh,100px) 0;border-top:0.5px solid var(--line)}
+.case-section:first-child{border-top:none;padding-top:clamp(60px,10vh,100px)}
+.case-label{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.case-h2{font-family:var(--f-d);font-size:clamp(26px,3.5vw,46px);font-weight:200;letter-spacing:-.025em;line-height:1.05;font-variation-settings:'opsz' 46;margin-bottom:22px}
+.case-h2 em{font-style:italic;color:var(--accent)}
+.case-p{font-size:15px;color:var(--text2);line-height:1.8;max-width:700px}
+.case-p+.case-p{margin-top:16px}
+.case-2col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.case-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+/* big mockup */
+.case-mockup{border-radius:10px;overflow:hidden;background:var(--surface);border:0.5px solid var(--line2);margin:clamp(32px,5vh,60px) 0}
+.case-mockup svg{display:block;width:100%;height:auto}
+/* insight card */
+.insight{background:var(--surface);border:0.5px solid var(--line2);border-radius:8px;padding:24px 28px}
+.insight-num{font-family:var(--f-d);font-size:40px;font-weight:200;color:var(--accent);line-height:1;margin-bottom:8px;font-variation-settings:'opsz' 40}
+.insight-text{font-size:14px;color:var(--text2);line-height:1.6}
+/* live link banner */
+.live-banner{background:var(--accent-bg);border:0.5px solid var(--accent-b);border-radius:8px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:clamp(32px,5vh,60px)}
+.live-banner-text p:first-child{font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.live-banner-text p:last-child{font-family:var(--f-d);font-size:22px;font-weight:300;color:var(--text);font-variation-settings:'opsz' 22}
+/* next project */
+.next-proj{display:flex;align-items:center;justify-content:space-between;padding:clamp(40px,8vh,80px) var(--pad);border-top:0.5px solid var(--line);background:var(--bg2);text-decoration:none;color:var(--text);transition:background .25s}
+.next-proj:hover{background:var(--bg3)}
+.next-label{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.next-title{font-family:var(--f-d);font-size:clamp(24px,3vw,40px);font-weight:200;letter-spacing:-.025em;font-variation-settings:'opsz' 40}
+.next-title em{font-style:italic;color:var(--accent)}
+.next-arrow{font-size:32px;color:var(--accent);transition:transform .3s var(--ease)}
+.next-proj:hover .next-arrow{transform:translateX(8px)}
+@media(max-width:900px){
+  .proj-hero-inner{grid-template-columns:1fr}
+  .case-2col,.case-3col{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">Elvis<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#portfolio" data-pt="Portfólio" data-en="Portfolio">Portfólio</a></li>
+    <li><a href="../index.html#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+    <li><a href="../index.html#contact" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="theme-btn" data-toggle-theme></button>
+    <button class="lang-btn" data-toggle-lang>EN</button>
+    <button class="menu-btn" id="mBtn"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="../index.html#portfolio" onclick="closeMob()" data-pt="Portfólio" data-en="Portfolio">Portfólio</a>
+  <a href="../index.html#about" onclick="closeMob()" data-pt="Sobre" data-en="About">Sobre</a>
+  <a href="../index.html#contact" onclick="closeMob()" data-pt="Contato" data-en="Contact">Contato</a>
+  <div class="mob-controls">
+    <button class="theme-btn" data-toggle-theme></button>
+    <button class="lang-btn" data-toggle-lang>EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <div class="proj-hero-grid"></div>
+  <a href="../index.html#portfolio" class="proj-back">← <span data-pt="Voltar ao portfólio" data-en="Back to portfolio">Voltar ao portfólio</span></a>
+  <div class="proj-hero-inner">
+    <div class="rv">
+      <p class="proj-category" data-pt="Site Institucional · UX/UI" data-en="Institutional Website · UX/UI">Site Institucional · UX/UI</p>
+      <h1 class="proj-title">Instituto <em>Ibira</em></h1>
+      <p class="proj-subtitle" data-pt="Projeto completo de UX e design para o site institucional do Instituto Ibira — uma organização dedicada à regeneração ambiental e social no Brasil." data-en="Complete UX and design project for the Instituto Ibira institutional website — an organization dedicated to environmental and social regeneration in Brazil.">Projeto completo de UX e design para o site institucional do Instituto Ibira — uma organização dedicada à regeneração ambiental e social no Brasil.</p>
+    </div>
+    <div class="proj-meta-list rv2">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label" data-pt="Meu papel" data-en="My role">Meu papel</span>
+        <span class="proj-meta-val">UX Lead · UI Design</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label" data-pt="Equipe" data-en="Team">Equipe</span>
+        <span class="proj-meta-val">Elvis Almeida, Lucas Morimoto, Felipe Gaiguer</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label" data-pt="Ferramentas" data-en="Tools">Ferramentas</span>
+        <span class="proj-meta-val">Figma · Claude Code</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label" data-pt="Status" data-en="Status">Status</span>
+        <span class="proj-meta-val" style="color:var(--accent)" data-pt="✦ Ao vivo — ibira.net" data-en="✦ Live — ibira.net">✦ Ao vivo — ibira.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE BODY -->
+<div style="background:var(--bg);transition:background .35s">
+<div class="case-body">
+
+  <!-- Visão geral -->
+  <div class="case-section rv">
+    <p class="case-label" data-pt="01 — Contexto" data-en="01 — Context">01 — Contexto</p>
+    <div class="case-2col">
+      <div>
+        <h2 class="case-h2" data-pt-html="Um instituto que <em>regenera</em>" data-en-html="An institute that <em>regenerates</em>">Um instituto que <em>regenera</em></h2>
+        <p class="case-p" data-pt="O Instituto Ibira é uma organização sem fins lucrativos focada em iniciativas de regeneração ambiental e social. O desafio era criar um site que traduzisse essa missão de forma clara e impactante, conectando o instituto ao seu público — doadores, parceiros e comunidade." data-en="Instituto Ibira is a non-profit organization focused on environmental and social regeneration initiatives. The challenge was to create a website that translated this mission clearly and impactfully, connecting the institute to its audience — donors, partners and community.">O Instituto Ibira é uma organização sem fins lucrativos focada em iniciativas de regeneração ambiental e social. O desafio era criar um site que traduzisse essa missão de forma clara e impactante, conectando o instituto ao seu público — doadores, parceiros e comunidade.</p>
+        <p class="case-p" data-pt="O projeto foi desenvolvido em co-produção com o Head de Projetos Lucas Morimoto e a equipe do instituto, com desenvolvimento final executado por Felipe Gaiguer utilizando Claude Code." data-en="The project was developed in co-production with Head of Projects Lucas Morimoto and the institute's team, with final development executed by Felipe Gaiguer using Claude Code.">O projeto foi desenvolvido em co-produção com o Head de Projetos Lucas Morimoto e a equipe do instituto, com desenvolvimento final executado por Felipe Gaiguer utilizando Claude Code.</p>
+      </div>
+      <div class="case-3col" style="grid-template-columns:1fr 1fr">
+        <div class="insight"><div class="insight-num">01</div><div class="insight-text" data-pt="Arquitetura de informação pensada para jornada do doador e do parceiro." data-en="Information architecture designed for the donor and partner journey.">Arquitetura de informação pensada para jornada do doador e do parceiro.</div></div>
+        <div class="insight"><div class="insight-num">02</div><div class="insight-text" data-pt="Design responsivo com foco em acessibilidade e clareza de conteúdo." data-en="Responsive design focused on accessibility and content clarity.">Design responsivo com foco em acessibilidade e clareza de conteúdo.</div></div>
+        <div class="insight"><div class="insight-num">03</div><div class="insight-text" data-pt="Processo colaborativo com equipe do instituto validando cada entrega." data-en="Collaborative process with institute team validating each delivery.">Processo colaborativo com equipe do instituto validando cada entrega.</div></div>
+        <div class="insight"><div class="insight-num">04</div><div class="insight-text" data-pt="Entrega final em produção com Claude Code — do Figma ao ar vivo." data-en="Final production delivery with Claude Code — from Figma to live.">Entrega final em produção com Claude Code — do Figma ao ar vivo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mockup principal -->
+  <div class="case-mockup rv">
+    <svg width="100%" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="700" fill="#0d1a12"/>
+      <!-- browser chrome -->
+      <rect width="1200" height="44" fill="rgba(0,0,0,.4)"/>
+      <circle cx="18" cy="22" r="6" fill="rgba(201,79,59,.7)"/>
+      <circle cx="36" cy="22" r="6" fill="rgba(212,168,83,.7)"/>
+      <circle cx="54" cy="22" r="6" fill="rgba(61,122,92,.7)"/>
+      <rect x="72" y="12" width="560" height="20" rx="10" fill="#1c1c1c"/>
+      <rect x="84" y="18" width="220" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+      <!-- nav -->
+      <rect x="0" y="44" width="1200" height="52" fill="rgba(8,20,14,.88)"/>
+      <rect x="32" y="59" width="80" height="22" rx="3" fill="rgba(61,122,92,.6)"/>
+      <rect x="600" y="61" width="60" height="18" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="672" y="61" width="60" height="18" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="744" y="61" width="60" height="18" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="816" y="59" width="80" height="22" rx="4" fill="rgba(61,122,92,.45)"/>
+      <!-- hero section -->
+      <rect x="0" y="96" width="1200" height="380" fill="#0a1510"/>
+      <rect x="60" y="156" width="130" height="10" rx="2" fill="rgba(61,122,92,.55)"/>
+      <rect x="60" y="175" width="520" height="48" rx="3" fill="rgba(255,255,255,.85)"/>
+      <rect x="60" y="232" width="460" height="20" rx="2" fill="rgba(255,255,255,.25)"/>
+      <rect x="60" y="260" width="380" height="16" rx="2" fill="rgba(255,255,255,.14)"/>
+      <rect x="60" y="296" width="140" height="44" rx="5" fill="rgba(61,122,92,.65)"/>
+      <rect x="212" y="296" width="120" height="44" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+      <!-- right image -->
+      <rect x="720" y="116" width="440" height="330" rx="10" fill="rgba(61,122,92,.08)" stroke="rgba(61,122,92,.18)" stroke-width=".5"/>
+      <ellipse cx="940" cy="281" rx="120" ry="100" fill="rgba(61,122,92,.1)"/>
+      <path d="M870 281 Q940 190 1010 281 Q940 372 870 281Z" fill="rgba(61,122,92,.4)"/>
+      <!-- section cards -->
+      <rect x="0" y="476" width="1200" height="224" fill="#0c1a0e"/>
+      <rect x="40" y="510" width="340" height="152" rx="8" fill="#0e2012" stroke="rgba(61,122,92,.1)" stroke-width=".5"/>
+      <rect x="60" y="530" width="36" height="36" rx="6" fill="rgba(61,122,92,.25)"/>
+      <rect x="60" y="580" width="120" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+      <rect x="60" y="598" width="280" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="60" y="612" width="220" height="8" rx="2" fill="rgba(255,255,255,.07)"/>
+      <rect x="60" y="630" width="100" height="22" rx="4" fill="rgba(61,122,92,.28)"/>
+      <rect x="430" y="510" width="340" height="152" rx="8" fill="#0e2012" stroke="rgba(61,122,92,.1)" stroke-width=".5"/>
+      <rect x="450" y="530" width="36" height="36" rx="6" fill="rgba(212,168,83,.2)"/>
+      <rect x="450" y="580" width="120" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+      <rect x="450" y="598" width="280" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="450" y="612" width="220" height="8" rx="2" fill="rgba(255,255,255,.07)"/>
+      <rect x="450" y="630" width="100" height="22" rx="4" fill="rgba(212,168,83,.2)"/>
+      <rect x="820" y="510" width="340" height="152" rx="8" fill="#0e2012" stroke="rgba(61,122,92,.1)" stroke-width=".5"/>
+      <rect x="840" y="530" width="36" height="36" rx="6" fill="rgba(59,108,181,.22)"/>
+      <rect x="840" y="580" width="120" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+      <rect x="840" y="598" width="280" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+      <rect x="840" y="630" width="100" height="22" rx="4" fill="rgba(59,108,181,.22)"/>
+    </svg>
+  </div>
+
+  <!-- Processo -->
+  <div class="case-section rv">
+    <p class="case-label" data-pt="02 — Processo" data-en="02 — Process">02 — Processo</p>
+    <div class="case-2col">
+      <div>
+        <h2 class="case-h2" data-pt-html="Do <em>briefing</em> ao ar vivo" data-en-html="From <em>briefing</em> to live">Do <em>briefing</em> ao ar vivo</h2>
+        <p class="case-p" data-pt="O processo começou com imersão no universo do instituto: entrevistas com a equipe, mapeamento da jornada dos usuários e análise de referências do setor de impacto social." data-en="The process began with immersion in the institute's universe: team interviews, user journey mapping and analysis of references from the social impact sector.">O processo começou com imersão no universo do instituto: entrevistas com a equipe, mapeamento da jornada dos usuários e análise de referências do setor de impacto social.</p>
+        <p class="case-p" data-pt="O design foi iterado em ciclos curtos no Figma, com validação frequente com os stakeholders. A entrega final utilizou Claude Code para transformar os protótipos em código de produção de forma eficiente." data-en="The design was iterated in short cycles in Figma, with frequent stakeholder validation. The final delivery used Claude Code to efficiently transform prototypes into production code.">O design foi iterado em ciclos curtos no Figma, com validação frequente com os stakeholders. A entrega final utilizou Claude Code para transformar os protótipos em código de produção de forma eficiente.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="insight" style="border-left:2px solid var(--accent);border-radius:0 8px 8px 0">
+          <div class="insight-num" style="font-size:28px">Discovery</div>
+          <div class="insight-text" data-pt="Entrevistas com equipe, análise de público, mapeamento de conteúdo e definição de objetivos do site." data-en="Team interviews, audience analysis, content mapping and site objective definition.">Entrevistas com equipe, análise de público, mapeamento de conteúdo e definição de objetivos do site.</div>
+        </div>
+        <div class="insight" style="border-left:2px solid var(--accent);border-radius:0 8px 8px 0">
+          <div class="insight-num" style="font-size:28px">Design</div>
+          <div class="insight-text" data-pt="Wireframes de baixa fidelidade → protótipos no Figma → revisão com stakeholders → ajustes e aprovação." data-en="Low-fidelity wireframes → Figma prototypes → stakeholder review → adjustments and approval.">Wireframes de baixa fidelidade → protótipos no Figma → revisão com stakeholders → ajustes e aprovação.</div>
+        </div>
+        <div class="insight" style="border-left:2px solid var(--accent);border-radius:0 8px 8px 0">
+          <div class="insight-num" style="font-size:28px">Entrega</div>
+          <div class="insight-text" data-pt="Handoff para desenvolvimento com Felipe Gaiguer via Claude Code. Acompanhamento até o lançamento." data-en="Development handoff with Felipe Gaiguer via Claude Code. Follow-through to launch.">Handoff para desenvolvimento com Felipe Gaiguer via Claude Code. Acompanhamento até o lançamento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile mockup -->
+  <div class="case-section rv">
+    <p class="case-label" data-pt="03 — Responsivo" data-en="03 — Responsive">03 — Responsivo</p>
+    <h2 class="case-h2" data-pt-html="Experiência <em>mobile-first</em>" data-en-html="<em>Mobile-first</em> experience">Experiência <em>mobile-first</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px">
+      <!-- mobile frames -->
+      <div class="case-mockup" style="margin:0;background:var(--bg2)">
+        <svg viewBox="0 0 260 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="480" rx="20" fill="#0a1510" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+          <rect x="20" y="14" width="220" height="452" rx="14" fill="#0c1a10"/>
+          <rect x="80" y="18" width="100" height="8" rx="4" fill="rgba(255,255,255,.1)"/>
+          <rect x="28" y="36" width="204" height="140" rx="6" fill="#0d1f12"/>
+          <rect x="40" y="54" width="80" height="7" rx="2" fill="rgba(61,122,92,.5)"/>
+          <rect x="40" y="68" width="160" height="18" rx="2" fill="rgba(255,255,255,.7)"/>
+          <rect x="40" y="94" width="130" height="7" rx="2" fill="rgba(255,255,255,.18)"/>
+          <rect x="40" y="112" width="80" height="26" rx="4" fill="rgba(61,122,92,.55)"/>
+          <rect x="28" y="190" width="96" height="80" rx="5" fill="#0d1f12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          <rect x="38" y="202" width="22" height="22" rx="4" fill="rgba(61,122,92,.22)"/>
+          <rect x="38" y="232" width="66" height="6" rx="2" fill="rgba(255,255,255,.18)"/>
+          <rect x="38" y="244" width="76" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="136" y="190" width="96" height="80" rx="5" fill="#0d1f12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          <rect x="28" y="284" width="204" height="7" rx="2" fill="rgba(255,255,255,.18)"/>
+          <rect x="28" y="298" width="180" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="28" y="312" width="150" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="28" y="340" width="204" height="50" rx="5" fill="rgba(61,122,92,.1)" stroke="rgba(61,122,92,.2)" stroke-width=".5"/>
+          <rect x="40" y="354" width="80" height="6" rx="2" fill="rgba(61,122,92,.5)"/>
+          <rect x="40" y="366" width="130" height="6" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="28" y="408" width="204" height="40" rx="6" fill="rgba(61,122,92,.4)"/>
+          <rect x="80" y="464" width="100" height="4" rx="2" fill="rgba(255,255,255,.12)"/>
+        </svg>
+      </div>
+      <div class="case-mockup" style="margin:0;background:var(--bg2)">
+        <svg viewBox="0 0 260 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="480" rx="20" fill="#0a1510" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+          <rect x="20" y="14" width="220" height="452" rx="14" fill="#0c1a10"/>
+          <rect x="80" y="18" width="100" height="8" rx="4" fill="rgba(255,255,255,.1)"/>
+          <rect x="28" y="36" width="204" height="36" rx="4" fill="#0a1410"/>
+          <rect x="38" y="46" width="60" height="16" rx="2" fill="rgba(61,122,92,.5)"/>
+          <rect x="168" y="47" width="54" height="14" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="28" y="84" width="204" height="110" rx="5" fill="#101d12"/>
+          <rect x="40" y="100" width="80" height="8" rx="2" fill="rgba(61,122,92,.4)"/>
+          <rect x="40" y="116" width="160" height="14" rx="2" fill="rgba(255,255,255,.7)"/>
+          <rect x="40" y="138" width="130" height="7" rx="2" fill="rgba(255,255,255,.16)"/>
+          <rect x="40" y="154" width="80" height="24" rx="4" fill="rgba(61,122,92,.55)"/>
+          <rect x="28" y="208" width="204" height="100" rx="5" fill="#0d1f12"/>
+          <rect x="40" y="222" width="70" height="8" rx="2" fill="rgba(255,255,255,.25)"/>
+          <rect x="40" y="238" width="180" height="6" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="40" y="250" width="160" height="6" rx="2" fill="rgba(255,255,255,.08)"/>
+          <rect x="40" y="265" width="140" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="40" y="280" width="70" height="18" rx="3" fill="rgba(61,122,92,.28)"/>
+          <rect x="80" y="464" width="100" height="4" rx="2" fill="rgba(255,255,255,.12)"/>
+        </svg>
+      </div>
+      <div class="case-mockup" style="margin:0;background:var(--bg2)">
+        <svg viewBox="0 0 260 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="480" rx="20" fill="#0a1510" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+          <rect x="20" y="14" width="220" height="452" rx="14" fill="#0c1a10"/>
+          <rect x="80" y="18" width="100" height="8" rx="4" fill="rgba(255,255,255,.1)"/>
+          <rect x="28" y="36" width="204" height="220" rx="5" fill="#0d1f12"/>
+          <circle cx="130" cy="120" r="60" fill="rgba(61,122,92,.08)" stroke="rgba(61,122,92,.14)" stroke-width=".5"/>
+          <path d="M100 120 Q130 82 160 120 Q130 158 100 120Z" fill="rgba(61,122,92,.45)"/>
+          <rect x="40" y="194" width="160" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="40" y="210" width="140" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="28" y="270" width="204" height="1" fill="rgba(255,255,255,.06)"/>
+          <rect x="28" y="282" width="204" height="50" rx="5" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.18)" stroke-width=".5"/>
+          <rect x="40" y="294" width="60" height="7" rx="2" fill="rgba(212,168,83,.5)"/>
+          <rect x="40" y="308" width="150" height="6" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="28" y="346" width="204" height="80" rx="5" fill="#0d1f12"/>
+          <rect x="40" y="360" width="100" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="40" y="376" width="180" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="40" y="390" width="140" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="80" y="464" width="100" height="4" rx="2" fill="rgba(255,255,255,.12)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live link -->
+  <div class="live-banner rv">
+    <div class="live-banner-text">
+      <p data-pt="Projeto ao vivo" data-en="Live project">Projeto ao vivo</p>
+      <p>ibira.net</p>
+    </div>
+    <a href="https://www.ibira.net/" target="_blank" rel="noopener" class="btn-primary" data-pt="Visitar o site →" data-en="Visit the site →">Visitar o site →</a>
+  </div>
+
+</div><!-- /case-body -->
+</div>
+
+<!-- NEXT PROJECT -->
+<a href="rwi.html" class="next-proj">
+  <div>
+    <p class="next-label" data-pt="Próximo projeto" data-en="Next project">Próximo projeto</p>
+    <p class="next-title">Rethinking <em>Wine</em></p>
+  </div>
+  <span class="next-arrow">→</span>
+</a>
+
+<footer class="site-footer">
+  <p class="footer-copy" data-pt="© 2025 Elvis Almeida — Design Lead" data-en="© 2025 Elvis Almeida — Design Lead">© 2025 Elvis Almeida — Design Lead</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/elvis-almeida-10427256/" target="_blank">LinkedIn</a>
+    <a href="https://www.behance.net/elvisarteefc4" target="_blank">Behance</a>
+    <a href="../index.html" data-pt="← Início" data-en="← Home">← Início</a>
+  </div>
+</footer>
+
+<script src="../shared.js"></script>
+</body>
+</html>

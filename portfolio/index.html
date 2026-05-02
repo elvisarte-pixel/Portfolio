@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Elvis Almeida — Design Lead & UX Director</title>
+<meta name="description" content="Elvis Almeida — Design Lead, Coordenador de UX/Criação e Gestor de Equipes Criativas."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── HERO ── */
+#hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;padding-top:var(--h);position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.5;pointer-events:none;transition:opacity .35s}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 72% 38%,var(--accent-bg) 0%,transparent 70%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(32px,5vw,80px);padding:clamp(60px,10vh,120px) var(--pad) 40px;position:relative;z-index:1}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.hero-kicker::before{content:'';width:24px;height:1px;background:var(--accent)}
+h1.hero-name{font-family:var(--f-d);font-size:clamp(52px,7.5vw,112px);font-weight:200;line-height:.9;letter-spacing:-.035em;font-variation-settings:'opsz' 72;margin:12px 0 6px}
+h1.hero-name em{font-style:italic;color:var(--accent);font-weight:300}
+.hero-role{font-family:var(--f-h);font-size:clamp(10px,1.1vw,12px);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text2);line-height:1.6}
+.hero-quote-wrap{max-width:460px;border-left:2px solid var(--accent);padding-left:20px;margin-top:20px}
+.hero-quote{font-family:var(--f-d);font-size:clamp(14px,1.4vw,17px);font-style:italic;font-weight:300;color:var(--text2);line-height:1.7;font-variation-settings:'opsz' 18}
+.hero-quote-by{font-size:11px;letter-spacing:.1em;color:var(--text3);margin-top:8px;font-family:var(--f-h)}
+.hero-ctas{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.hero-right{display:flex;justify-content:center;align-items:center;position:relative}
+/* floating UI card */
+.hero-ui-card{width:100%;max-width:440px;background:var(--surface);border:0.5px solid var(--line2);border-radius:12px;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.huc-top{background:var(--surface2);padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:0.5px solid var(--line)}
+.huc-dots{display:flex;gap:6px}
+.huc-dot{width:10px;height:10px;border-radius:50%}
+.huc-url{flex:1;background:var(--bg2);border-radius:20px;padding:6px 14px;font-size:11px;font-family:var(--f-h);color:var(--text3);letter-spacing:.04em}
+.huc-body{padding:28px 24px}
+.huc-label{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.huc-title{font-family:var(--f-d);font-size:28px;font-weight:200;letter-spacing:-.025em;line-height:1.15;font-variation-settings:'opsz' 28;margin-bottom:20px}
+/* mini wireframe blocks */
+.huc-wire{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.huc-block{background:var(--bg2);border-radius:4px;height:56px;border:0.5px solid var(--line)}
+.huc-block-wide{background:var(--bg2);border-radius:4px;height:32px;border:0.5px solid var(--line);margin-bottom:8px}
+.huc-block-wide.accent-fill{background:var(--accent-bg);border-color:var(--accent-b)}
+.huc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+/* floating stat badges */
+.hero-badge{position:absolute;background:var(--surface);border:0.5px solid var(--line2);border-radius:10px;padding:14px 18px;backdrop-filter:blur(8px)}
+.hero-badge-1{top:-20px;right:-24px;min-width:130px}
+.hero-badge-2{bottom:30px;right:-36px;min-width:110px}
+.hb-label{font-family:var(--f-h);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.hb-val{font-family:var(--f-d);font-size:26px;font-weight:300;color:var(--accent);line-height:1;font-variation-settings:'opsz' 26}
+.hb-sub{font-size:10px;color:var(--text3);font-family:var(--f-h);margin-top:2px}
+/* hero bottom bar */
+.hero-bottom{display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad) clamp(32px,5vh,56px);position:relative;z-index:1;flex-wrap:wrap;gap:20px}
+.hero-stats{display:flex;gap:clamp(24px,4vw,60px)}
+.hstat{display:flex;flex-direction:column;gap:2px}
+.hstat-n{font-family:var(--f-d);font-size:clamp(28px,3vw,42px);font-weight:300;color:var(--text);letter-spacing:-.03em;font-variation-settings:'opsz' 36;line-height:1}
+.hstat-l{font-size:11px;color:var(--text3);letter-spacing:.06em;font-family:var(--f-h);margin-top:2px}
+.scroll-hint{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);font-family:var(--f-h)}
+.scroll-line{width:40px;height:1px;background:var(--text3);animation:scrollPulse 2.2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{transform:scaleX(1);opacity:.3}50%{transform:scaleX(.5);transform-origin:left;opacity:1}}
+
+/* ── PORTFOLIO SECTION ── */
+#portfolio{border-top:0.5px solid var(--line)}
+.portfolio-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--line);flex-wrap:wrap}
+.ptab{font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;cursor:pointer;color:var(--text2);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-0.5px;transition:var(--transition);white-space:nowrap}
+.ptab:hover{color:var(--text)}
+.ptab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.portfolio-panel{display:none}
+.portfolio-panel.active{display:block}
+/* Featured project block */
+.feat-block{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border:0.5px solid var(--line);margin-bottom:1px;transition:var(--transition)}
+.feat-visual{background:var(--bg2);overflow:hidden;position:relative;min-height:440px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;padding:32px}
+.feat-visual svg,.feat-visual>div{transition:transform .6s var(--ease2)}
+.feat-visual:hover svg,.feat-visual:hover>div{transform:scale(1.03)}
+.feat-info{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;justify-content:space-between;background:var(--bg2);border-left:0.5px solid var(--line)}
+.feat-cat{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.feat-name{font-family:var(--f-d);font-size:clamp(28px,3.5vw,52px);font-weight:200;line-height:1;letter-spacing:-.03em;font-variation-settings:'opsz' 48;margin-bottom:16px}
+.feat-name em{font-style:italic;color:var(--accent)}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:24px}
+.feat-roles{list-style:none;display:flex;flex-direction:column;gap:7px;border-top:0.5px solid var(--line);padding-top:18px;margin-bottom:22px}
+.feat-roles li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2);font-family:var(--f-b)}
+.feat-roles li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+/* 3-col grid */
+.proj-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:0.5px solid var(--line);border-top:none;margin-bottom:1px}
+.proj-grid-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:0.5px solid var(--line);border-top:none;margin-bottom:1px}
+
+/* ── ABOUT ── */
+#about{border-top:0.5px solid var(--line)}
+.about-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(40px,7vw,100px);align-items:start}
+.about-visual-col{display:flex;flex-direction:column;gap:16px;position:sticky;top:calc(var(--h) + 24px)}
+.portrait-frame{aspect-ratio:3/4;background:var(--surface);border:0.5px solid var(--line2);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.portrait-initials{font-family:var(--f-d);font-size:120px;font-weight:200;color:var(--line2);font-variation-settings:'opsz' 72}
+.portrait-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(8,8,8,.82);backdrop-filter:blur(10px);padding:12px 16px;border-radius:6px;border:0.5px solid var(--line2)}
+[data-theme="light"] .portrait-badge{background:rgba(245,242,236,.88)}
+.pb-name{font-family:var(--f-h);font-size:14px;font-weight:700;color:var(--text);letter-spacing:.04em}
+.pb-role{font-size:11px;color:var(--accent);letter-spacing:.08em;font-family:var(--f-h);margin-top:2px}
+.ai-card{background:var(--surface);border:0.5px solid var(--accent-b);border-radius:8px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.ai-icon{width:34px;height:34px;border-radius:7px;background:var(--accent-bg);border:0.5px solid var(--accent-b);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ai-title{font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.ai-text{font-size:13px;color:var(--text2);line-height:1.6}
+.about-content{display:flex;flex-direction:column;gap:36px}
+.about-intro{font-family:var(--f-d);font-size:clamp(20px,2.6vw,32px);font-weight:200;line-height:1.35;letter-spacing:-.025em;font-variation-settings:'opsz' 32}
+.about-intro em{font-style:italic;color:var(--accent)}
+.about-body{font-size:15px;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:16px}
+.about-body strong{color:var(--text);font-weight:500}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)}
+.sk{background:var(--surface);padding:16px 20px;transition:background .25s}
+.sk:hover{background:var(--surface2)}
+.sk-name{font-family:var(--f-h);font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--text);margin-bottom:3px}
+.sk-desc{font-size:11px;color:var(--text3)}
+.leadership-box{background:var(--surface);border:0.5px solid var(--line2);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.lb-tag{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.lb-title{font-family:var(--f-d);font-size:clamp(18px,2vw,26px);font-weight:200;letter-spacing:-.02em;font-variation-settings:'opsz' 24}
+.lb-body{font-size:14px;color:var(--text2);line-height:1.7}
+.lb-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.lb-list li{display:flex;gap:12px;font-size:13px;color:var(--text2);line-height:1.5}
+.lb-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+
+/* ── EXPERIENCE ── */
+#experience{border-top:0.5px solid var(--line)}
+.exp-row{display:grid;grid-template-columns:160px 1fr;gap:48px;padding:40px 0;border-top:0.5px solid var(--line)}
+.exp-date{font-family:var(--f-d);font-size:13px;color:var(--text3);font-variation-settings:'opsz' 14;padding-top:6px}
+.exp-body{display:flex;flex-direction:column;gap:5px}
+.exp-role{font-family:var(--f-d);font-size:clamp(20px,2.3vw,30px);font-weight:300;letter-spacing:-.02em;line-height:1.1;font-variation-settings:'opsz' 30}
+.exp-co{font-family:var(--f-h);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.exp-desc{font-size:14px;color:var(--text2);line-height:1.7;max-width:600px;margin-top:10px}
+
+/* ── CONTACT ── */
+#contact{border-top:0.5px solid var(--line)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-big{font-family:var(--f-d);font-size:clamp(30px,5vw,68px);font-weight:200;line-height:1.05;letter-spacing:-.03em;font-variation-settings:'opsz' 72;margin-bottom:20px}
+.contact-big em{font-style:italic;color:var(--accent)}
+.contact-sub{font-size:15px;color:var(--text2);line-height:1.75;max-width:400px}
+.contact-links{display:flex;flex-direction:column}
+.clink{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:0.5px solid var(--line);text-decoration:none;color:var(--text);transition:var(--transition)}
+.clink:last-child{border-bottom:0.5px solid var(--line)}
+.clink:hover .clink-name{color:var(--accent)}
+.clink:hover .clink-arr{opacity:1;transform:translateX(0)}
+.clink-info{display:flex;flex-direction:column;gap:3px}
+.clink-label{font-family:var(--f-h);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text3)}
+.clink-name{font-family:var(--f-d);font-size:22px;font-weight:300;transition:color .2s;font-variation-settings:'opsz' 22}
+.clink-arr{color:var(--accent);font-size:18px;opacity:0;transform:translateX(-8px);transition:opacity .2s,transform .2s var(--ease)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .feat-block{grid-template-columns:1fr}
+  .feat-visual{min-height:280px}
+  .about-layout{grid-template-columns:1fr}
+  .about-visual-col{position:static}
+  .portrait-frame{aspect-ratio:16/9;max-height:280px}
+  .contact-layout{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:768px){
+  .proj-grid-3,.proj-grid-2col{grid-template-columns:1fr}
+  .exp-row{grid-template-columns:1fr;gap:6px}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+  .portfolio-tabs{gap:0}
+  .ptab{padding:13px 18px;font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Elvis<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#portfolio" data-pt="Portfólio" data-en="Portfolio">Portfólio</a></li>
+    <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+    <li><a href="#experience" data-pt="Experiência" data-en="Experience">Experiência</a></li>
+    <li><a href="#contact" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="theme-btn" data-toggle-theme aria-label="Toggle theme"></button>
+    <button class="lang-btn" data-toggle-lang aria-label="Toggle language">EN</button>
+    <button class="menu-btn" id="mBtn"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mob-nav" id="mobNav">
+  <a href="#portfolio" onclick="closeMob()" data-pt="Portfólio" data-en="Portfolio">Portfólio</a>
+  <a href="#about" onclick="closeMob()" data-pt="Sobre" data-en="About">Sobre</a>
+  <a href="#experience" onclick="closeMob()" data-pt="Experiência" data-en="Experience">Experiência</a>
+  <a href="#contact" onclick="closeMob()" data-pt="Contato" data-en="Contact">Contato</a>
+  <div class="mob-controls">
+    <button class="theme-btn" data-toggle-theme></button>
+    <button class="lang-btn" data-toggle-lang>EN</button>
+  </div>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-kicker rv" data-pt="Design Lead · UX Coordinator · ES, Brasil" data-en="Design Lead · UX Coordinator · ES, Brazil">Design Lead · UX Coordinator · ES, Brasil</span>
+      <h1 class="hero-name rv">Elvis<br><em>Almeida</em></h1>
+      <p class="hero-role rv" data-pt="Coordenador de UX / Criação · Design Lead · Gestor de Equipes Criativas" data-en="UX / Creative Coordinator · Design Lead · Creative Teams Manager">Coordenador de UX / Criação · Design Lead · Gestor de Equipes Criativas</p>
+      <div class="hero-quote-wrap rv">
+        <p class="hero-quote">"Even the best designers produce successful products only if their designs solve the right problems. A wonderful interface to the wrong features will fail."</p>
+        <p class="hero-quote-by">— Jakob Nielsen</p>
+      </div>
+      <div class="hero-ctas rv">
+        <a href="#portfolio" class="btn-primary" data-pt="Ver portfólio" data-en="View portfolio">Ver portfólio</a>
+        <a href="#contact" class="btn-outline" data-pt="Fale comigo" data-en="Get in touch">Fale comigo</a>
+      </div>
+    </div>
+    <div class="hero-right rv">
+      <div class="hero-ui-card">
+        <div class="huc-top">
+          <div class="huc-dots">
+            <div class="huc-dot" style="background:#c94f3b;opacity:.7"></div>
+            <div class="huc-dot" style="background:#d4a853;opacity:.7"></div>
+            <div class="huc-dot" style="background:#3d7a5c;opacity:.7"></div>
+          </div>
+          <div class="huc-url">elvisalmeida.com.br</div>
+        </div>
+        <div class="huc-body">
+          <p class="huc-label" data-pt="Design em progresso" data-en="Design in progress">Design em progresso</p>
+          <p class="huc-title" data-pt="Experiências que resolvem os problemas certos." data-en="Experiences that solve the right problems.">Experiências que resolvem os problemas certos.</p>
+          <div class="huc-block-wide accent-fill"></div>
+          <div class="huc-wire">
+            <div class="huc-block"></div>
+            <div class="huc-block"></div>
+          </div>
+          <div class="huc-block-wide"></div>
+          <div class="huc-chips">
+            <span class="tag">Figma</span>
+            <span class="tag">Design System</span>
+            <span class="tag">IA Generativa</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-badge hero-badge-1">
+        <p class="hb-label" data-pt="Projetos" data-en="Projects">Projetos</p>
+        <p class="hb-val">50+</p>
+        <p class="hb-sub" data-pt="entregues" data-en="delivered">entregues</p>
+      </div>
+      <div class="hero-badge hero-badge-2">
+        <p class="hb-label">Team Lead</p>
+        <p class="hb-val" style="font-size:18px" data-pt="Equipes" data-en="Teams">Equipes</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">10+</span><span class="hstat-l" data-pt="Anos exp." data-en="Years exp.">Anos exp.</span></div>
+      <div class="hstat"><span class="hstat-n">50+</span><span class="hstat-l" data-pt="Projetos" data-en="Projects">Projetos</span></div>
+      <div class="hstat"><span class="hstat-n">3+</span><span class="hstat-l" data-pt="Sites no ar" data-en="Live sites">Sites no ar</span></div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div><span data-pt="Scroll" data-en="Scroll">Scroll</span></div>
+  </div>
+</section>
+
+<!-- ════════ PORTFOLIO ════════ -->
+<section id="portfolio" class="sec-pad">
+  <div class="sec-header rv">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title" data-pt-html="Porta<em>fólio</em>" data-en-html="Port<em>folio</em>">Porta<em>fólio</em></h2>
+    <div class="sec-hr"></div>
+    <p class="sec-desc" data-pt="Projetos selecionados em UX, Marca, Criativos e Impressos." data-en="Selected projects in UX, Brand, Creatives and Print.">Projetos selecionados em UX, Marca, Criativos e Impressos.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="portfolio-tabs">
+    <button class="ptab active" data-tab="ux" data-pt="UX / Produto" data-en="UX / Product">UX / Produto</button>
+    <button class="ptab" data-tab="marca" data-pt="Marca & Identidade" data-en="Brand & Identity">Marca & Identidade</button>
+    <button class="ptab" data-tab="criativos" data-pt="Criativos & Social" data-en="Creatives & Social">Criativos & Social</button>
+    <button class="ptab" data-tab="impressos" data-pt="Impressos" data-en="Print">Impressos</button>
+  </div>
+
+  <!-- ── TAB: UX ── -->
+  <div class="portfolio-panel active" id="panel-ux">
+    <!-- Featured: Ibira -->
+    <div class="feat-block rv">
+      <a class="feat-visual" href="projects/ibira.html">
+        <svg width="100%" viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="560" height="400" fill="#0d1a12"/>
+          <!-- nav bar -->
+          <rect width="560" height="48" fill="rgba(0,0,0,.5)"/>
+          <rect x="20" y="15" width="70" height="18" rx="3" fill="rgba(61,122,92,.7)"/>
+          <rect x="310" y="17" width="52" height="14" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="372" y="17" width="52" height="14" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="434" y="17" width="52" height="14" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="496" y="13" width="48" height="22" rx="4" fill="rgba(61,122,92,.5)"/>
+          <!-- hero area -->
+          <rect x="0" y="48" width="560" height="190" fill="#0a1510"/>
+          <rect x="36" y="90" width="110" height="8" rx="2" fill="rgba(61,122,92,.6)"/>
+          <rect x="36" y="107" width="280" height="26" rx="2" fill="rgba(255,255,255,.82)"/>
+          <rect x="36" y="141" width="240" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="36" y="158" width="200" height="10" rx="2" fill="rgba(255,255,255,.13)"/>
+          <rect x="36" y="178" width="110" height="34" rx="4" fill="rgba(61,122,92,.65)"/>
+          <rect x="156" y="178" width="90" height="34" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width=".5"/>
+          <!-- right image block -->
+          <rect x="360" y="58" width="180" height="170" rx="8" fill="rgba(61,122,92,.1)" stroke="rgba(61,122,92,.22)" stroke-width=".5"/>
+          <circle cx="450" cy="143" r="42" fill="rgba(61,122,92,.12)" stroke="rgba(61,122,92,.25)" stroke-width=".5"/>
+          <path d="M428 143 Q450 120 472 143 Q450 166 428 143Z" fill="rgba(61,122,92,.55)"/>
+          <!-- cards row -->
+          <rect x="20" y="258" width="160" height="118" rx="6" fill="#101d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          <rect x="36" y="272" width="28" height="28" rx="5" fill="rgba(61,122,92,.25)"/>
+          <rect x="36" y="308" width="90" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="36" y="322" width="120" height="6" rx="2" fill="rgba(255,255,255,.09)"/>
+          <rect x="36" y="334" width="80" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="36" y="348" width="80" height="20" rx="3" fill="rgba(61,122,92,.25)"/>
+          <rect x="196" y="258" width="160" height="118" rx="6" fill="#101d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          <rect x="212" y="272" width="28" height="28" rx="5" fill="rgba(212,168,83,.2)"/>
+          <rect x="212" y="308" width="90" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="212" y="322" width="120" height="6" rx="2" fill="rgba(255,255,255,.09)"/>
+          <rect x="212" y="334" width="80" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="212" y="348" width="80" height="20" rx="3" fill="rgba(212,168,83,.2)"/>
+          <rect x="374" y="258" width="166" height="118" rx="6" fill="#101d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          <rect x="390" y="272" width="28" height="28" rx="5" fill="rgba(59,108,181,.22)"/>
+          <rect x="390" y="308" width="90" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+          <rect x="390" y="322" width="120" height="6" rx="2" fill="rgba(255,255,255,.09)"/>
+          <rect x="390" y="348" width="80" height="20" rx="3" fill="rgba(59,108,181,.22)"/>
+        </svg>
+      </a>
+      <div class="feat-info">
+        <div>
+          <p class="feat-cat" data-pt="Site Institucional · UX/UI" data-en="Institutional Website · UX/UI">Site Institucional · UX/UI</p>
+          <h3 class="feat-name" data-pt-html="Instituto <em>Ibira</em>" data-en-html="Ibira <em>Institute</em>">Instituto <em>Ibira</em></h3>
+          <p class="feat-desc" data-pt="Projeto completo de UX e design para o site institucional do Instituto Ibira. Coprodução colaborativa com pesquisa, arquitetura de informação, design de interfaces e entrega em produção com Claude Code." data-en="Complete UX and design project for the Instituto Ibira institutional website. Collaborative co-production with research, information architecture, UI design, and production delivery using Claude Code.">Projeto completo de UX e design para o site institucional do Instituto Ibira. Coprodução colaborativa com pesquisa, arquitetura de informação, design de interfaces e entrega em produção com Claude Code.</p>
+          <ul class="feat-roles">
+            <li data-pt="UX Research & Estratégia" data-en="UX Research & Strategy">UX Research & Estratégia</li>
+            <li data-pt="UI Design no Figma" data-en="UI Design in Figma">UI Design no Figma</li>
+            <li data-pt="Co-produção com Head Lucas Morimoto" data-en="Co-production with Head Lucas Morimoto">Co-produção com Head Lucas Morimoto</li>
+            <li data-pt="Desenvolvimento via Claude Code (Felipe Gaiguer)" data-en="Development via Claude Code (Felipe Gaiguer)">Desenvolvimento via Claude Code (Felipe Gaiguer)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags-row" style="margin-bottom:20px"><span class="tag">UX/UI</span><span class="tag">Figma</span><span class="tag">Claude Code</span><span class="tag">Institucional</span></div>
+          <a href="projects/ibira.html" class="text-link" data-pt="Ver case completo →" data-en="View full case →">Ver case completo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured: RWI -->
+    <div class="feat-block rv" style="flex-direction:row-reverse">
+      <div class="feat-info" style="border-left:none;border-right:0.5px solid var(--line)">
+        <div>
+          <p class="feat-cat" data-pt="Plataforma Digital · UX" data-en="Digital Platform · UX">Plataforma Digital · UX</p>
+          <h3 class="feat-name" data-pt-html="Rethinking <em>Wine</em>" data-en-html="Rethinking <em>Wine</em>">Rethinking <em>Wine</em></h3>
+          <p class="feat-desc" data-pt="Landing page de lançamento e coordenação da plataforma de comunidade para a RWI. Do design estratégico à entrega, garantindo coesão entre a LP de captação e o ambiente da comunidade." data-en="Launch landing page and community platform coordination for RWI. From strategic design to delivery, ensuring cohesion between the lead-gen LP and the community environment.">Landing page de lançamento e coordenação da plataforma de comunidade para a RWI. Do design estratégico à entrega, garantindo coesão entre a LP de captação e o ambiente da comunidade.</p>
+          <ul class="feat-roles">
+            <li data-pt="UX Strategy & Design Lead" data-en="UX Strategy & Design Lead">UX Strategy & Design Lead</li>
+            <li data-pt="Landing page de lançamento" data-en="Launch landing page">Landing page de lançamento</li>
+            <li data-pt="Coordenação da plataforma de comunidade" data-en="Community platform coordination">Coordenação da plataforma de comunidade</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tags-row" style="margin-bottom:20px"><span class="tag">UX/UI</span><span class="tag">Lançamento</span><span class="tag">Comunidade</span><span class="tag">Figma</span></div>
+          <a href="projects/rwi.html" class="text-link" data-pt="Ver case completo →" data-en="View full case →">Ver case completo →</a>
+        </div>
+      </div>
+      <a class="feat-visual" href="projects/rwi.html">
+        <svg width="100%" viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="560" height="400" fill="#0e0810"/>
+          <ellipse cx="280" cy="200" rx="240" ry="200" fill="rgba(140,80,180,.04)"/>
+          <!-- nav -->
+          <rect width="560" height="48" fill="rgba(0,0,0,.5)"/>
+          <rect x="20" y="15" width="80" height="18" rx="3" fill="rgba(255,255,255,.14)"/>
+          <rect x="360" y="17" width="50" height="14" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="420" y="17" width="50" height="14" rx="2" fill="rgba(255,255,255,.07)"/>
+          <rect x="480" y="13" width="60" height="22" rx="4" fill="rgba(140,80,180,.25)" stroke="rgba(140,80,180,.4)" stroke-width=".5"/>
+          <!-- hero text -->
+          <rect x="120" y="100" width="320" height="8" rx="2" fill="rgba(255,255,255,.14)"/>
+          <rect x="80" y="116" width="400" height="32" rx="2" fill="rgba(255,255,255,.8)"/>
+          <rect x="80" y="156" width="400" height="32" rx="2" fill="rgba(140,80,180,.4)"/>
+          <rect x="160" y="200" width="240" height="10" rx="2" fill="rgba(255,255,255,.18)"/>
+          <rect x="200" y="224" width="160" height="36" rx="4" fill="rgba(140,80,180,.45)"/>
+          <!-- feature cards -->
+          <rect x="40" y="292" width="148" height="86" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+          <rect x="56" y="306" width="52" height="8" rx="2" fill="rgba(140,80,180,.5)"/>
+          <rect x="56" y="320" width="110" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="56" y="332" width="90" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="56" y="356" width="60" height="16" rx="3" fill="rgba(140,80,180,.2)"/>
+          <rect x="204" y="292" width="148" height="86" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+          <rect x="220" y="306" width="52" height="8" rx="2" fill="rgba(212,168,83,.5)"/>
+          <rect x="220" y="320" width="110" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="220" y="332" width="90" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="220" y="356" width="60" height="16" rx="3" fill="rgba(212,168,83,.2)"/>
+          <rect x="370" y="292" width="148" height="86" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+          <rect x="386" y="306" width="52" height="8" rx="2" fill="rgba(61,122,92,.5)"/>
+          <rect x="386" y="320" width="110" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+          <rect x="386" y="332" width="90" height="6" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="386" y="356" width="60" height="16" rx="3" fill="rgba(61,122,92,.2)"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 3-col grid -->
+    <div class="proj-grid-3 rv">
+      <!-- MyDeli -->
+      <a class="proj-card" href="projects/mydeli.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0f1a10"/>
+            <rect width="380" height="44" fill="#0a120b"/>
+            <rect x="14" y="13" width="68" height="18" rx="3" fill="rgba(255,255,255,.14)"/>
+            <rect x="260" y="15" width="48" height="14" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="316" y="13" width="52" height="18" rx="3" fill="rgba(61,122,92,.6)"/>
+            <rect x="14" y="60" width="200" height="22" rx="2" fill="rgba(255,255,255,.75)"/>
+            <rect x="14" y="90" width="160" height="8" rx="2" fill="rgba(255,255,255,.18)"/>
+            <rect x="14" y="108" width="90" height="26" rx="4" fill="rgba(61,122,92,.6)"/>
+            <rect x="240" y="52" width="126" height="84" rx="6" fill="rgba(61,122,92,.1)" stroke="rgba(61,122,92,.22)" stroke-width=".5"/>
+            <circle cx="303" cy="94" r="28" fill="rgba(61,122,92,.18)"/>
+            <rect x="14" y="154" width="108" height="70" rx="5" fill="#111d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="26" y="166" width="36" height="36" rx="4" fill="rgba(61,122,92,.14)"/>
+            <rect x="68" y="170" width="40" height="6" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="68" y="182" width="50" height="5" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="68" y="194" width="32" height="14" rx="3" fill="rgba(61,122,92,.3)"/>
+            <rect x="134" y="154" width="108" height="70" rx="5" fill="#111d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="146" y="166" width="36" height="36" rx="4" fill="rgba(212,168,83,.12)"/>
+            <rect x="188" y="170" width="40" height="6" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="188" y="182" width="50" height="5" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="188" y="194" width="32" height="14" rx="3" fill="rgba(212,168,83,.25)"/>
+            <rect x="254" y="154" width="112" height="70" rx="5" fill="#111d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="266" y="166" width="36" height="36" rx="4" fill="rgba(61,122,92,.14)"/>
+            <rect x="308" y="170" width="40" height="6" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="308" y="182" width="50" height="5" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="308" y="194" width="32" height="14" rx="3" fill="rgba(61,122,92,.3)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="E-commerce · UX" data-en="E-commerce · UX">E-commerce · UX</span>
+          <h3 class="proj-card-name">My Deli Market</h3>
+          <p class="proj-card-desc" data-pt="Redesign do e-commerce para grocerant omnichannel. Análise, reconfiguração e construção das páginas de compra." data-en="E-commerce redesign for an omnichannel grocerant. Analysis, reconfiguration and shopping page construction.">Redesign do e-commerce para grocerant omnichannel. Análise, reconfiguração e construção das páginas de compra.</p>
+          <div class="tags-row"><span class="tag">UX Research</span><span class="tag">E-commerce</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <!-- CPAPMed -->
+      <a class="proj-card" href="projects/cpapmed.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#080e14"/>
+            <rect width="380" height="40" fill="#0a1018"/>
+            <rect x="14" y="11" width="60" height="18" rx="3" fill="rgba(59,108,181,.55)"/>
+            <rect x="280" y="13" width="46" height="14" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="334" y="11" width="34" height="18" rx="3" fill="rgba(59,108,181,.4)"/>
+            <rect x="14" y="56" width="80" height="8" rx="2" fill="rgba(59,108,181,.4)"/>
+            <rect x="14" y="72" width="180" height="22" rx="2" fill="rgba(255,255,255,.78)"/>
+            <rect x="14" y="102" width="160" height="8" rx="2" fill="rgba(255,255,255,.14)"/>
+            <rect x="14" y="120" width="100" height="26" rx="4" fill="rgba(59,108,181,.55)"/>
+            <rect x="124" y="120" width="80" height="26" rx="4" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width=".5"/>
+            <circle cx="300" cy="100" r="60" fill="rgba(59,108,181,.06)" stroke="rgba(59,108,181,.12)" stroke-width=".5"/>
+            <rect x="260" y="68" width="80" height="64" rx="6" fill="rgba(59,108,181,.1)" stroke="rgba(59,108,181,.18)" stroke-width=".5"/>
+            <rect x="14" y="162" width="83" height="64" rx="4" fill="#0c1520" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <rect x="24" y="172" width="32" height="32" rx="3" fill="rgba(59,108,181,.12)"/>
+            <rect x="62" y="176" width="28" height="6" rx="2" fill="rgba(255,255,255,.18)"/>
+            <rect x="62" y="188" width="22" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="24" y="210" width="56" height="12" rx="3" fill="rgba(59,108,181,.28)"/>
+            <rect x="107" y="162" width="83" height="64" rx="4" fill="#0c1520" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <rect x="117" y="172" width="32" height="32" rx="3" fill="rgba(59,108,181,.12)"/>
+            <rect x="155" y="176" width="28" height="6" rx="2" fill="rgba(255,255,255,.18)"/>
+            <rect x="155" y="188" width="22" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="117" y="210" width="56" height="12" rx="3" fill="rgba(59,108,181,.28)"/>
+            <rect x="200" y="162" width="83" height="64" rx="4" fill="#0c1520" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <rect x="293" y="162" width="83" height="64" rx="4" fill="#0c1520" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="E-commerce · Saúde" data-en="E-commerce · Health">E-commerce · Saúde</span>
+          <h3 class="proj-card-name">CPAP Med</h3>
+          <p class="proj-card-desc" data-pt="Design completo do e-commerce em Magento 2 para equipamentos médicos CPAP, com foco em clareza e conversão." data-en="Complete e-commerce design in Magento 2 for CPAP medical equipment, focused on clarity and conversion.">Design completo do e-commerce em Magento 2 para equipamentos médicos CPAP, com foco em clareza e conversão.</p>
+          <div class="tags-row"><span class="tag">E-commerce</span><span class="tag">Saúde</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <!-- Memorizart -->
+      <a class="proj-card" href="projects/memorizart.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#100d18"/>
+            <ellipse cx="190" cy="120" rx="130" ry="110" fill="rgba(140,80,200,.04)"/>
+            <rect width="380" height="38" fill="#0d0a14"/>
+            <rect x="14" y="10" width="58" height="18" rx="3" fill="rgba(140,80,200,.5)"/>
+            <rect x="250" y="12" width="42" height="14" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="302" y="12" width="42" height="14" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="70" y="62" width="240" height="22" rx="2" fill="rgba(255,255,255,.7)"/>
+            <rect x="90" y="92" width="200" height="8" rx="2" fill="rgba(255,255,255,.14)"/>
+            <rect x="110" y="106" width="160" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="130" y="124" width="120" height="30" rx="4" fill="rgba(140,80,200,.5)"/>
+            <rect x="24" y="164" width="100" height="68" rx="5" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="36" y="176" width="40" height="40" rx="3" fill="rgba(140,80,200,.1)"/>
+            <rect x="82" y="180" width="30" height="6" rx="2" fill="rgba(255,255,255,.18)"/>
+            <rect x="82" y="192" width="36" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="140" y="164" width="100" height="68" rx="5" fill="rgba(140,80,200,.07)" stroke="rgba(140,80,200,.18)" stroke-width=".5"/>
+            <rect x="152" y="176" width="40" height="40" rx="3" fill="rgba(140,80,200,.15)"/>
+            <rect x="256" y="164" width="100" height="68" rx="5" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Site · UX/UI" data-en="Website · UX/UI">Site · UX/UI</span>
+          <h3 class="proj-card-name">Memorizart</h3>
+          <p class="proj-card-desc" data-pt="Design de site para plataforma criativa, com conceito visual forte e experiência de usuário cuidadosamente mapeada." data-en="Website design for a creative platform, with strong visual concept and carefully mapped user experience.">Design de site para plataforma criativa, com conceito visual forte e experiência de usuário cuidadosamente mapeada.</p>
+          <div class="tags-row"><span class="tag">UX/UI</span><span class="tag">Web</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 2-col: Wifi Pro + MyDeli Cardápio -->
+    <div class="proj-grid-2col rv">
+      <a class="proj-card" href="projects/wifipro.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="200" fill="#08100e"/>
+            <rect width="380" height="36" fill="#060d0b"/>
+            <rect x="14" y="9" width="58" height="18" rx="3" fill="rgba(61,122,92,.6)"/>
+            <rect x="248" y="11" width="46" height="14" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="302" y="11" width="46" height="14" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="14" y="52" width="90" height="8" rx="2" fill="rgba(61,122,92,.5)"/>
+            <rect x="14" y="66" width="160" height="18" rx="2" fill="rgba(255,255,255,.7)"/>
+            <rect x="14" y="92" width="130" height="7" rx="2" fill="rgba(255,255,255,.12)"/>
+            <rect x="14" y="106" width="80" height="24" rx="4" fill="rgba(61,122,92,.5)"/>
+            <circle cx="295" cy="100" r="46" fill="rgba(61,122,92,.06)" stroke="rgba(61,122,92,.14)" stroke-width=".5"/>
+            <circle cx="295" cy="100" r="30" fill="rgba(61,122,92,.08)" stroke="rgba(61,122,92,.18)" stroke-width=".5"/>
+            <circle cx="295" cy="100" r="14" fill="rgba(61,122,92,.28)"/>
+            <circle cx="295" cy="100" r="5" fill="rgba(61,122,92,.8)"/>
+            <rect x="14" y="146" width="107" height="44" rx="4" fill="#0e1812" stroke="rgba(61,122,92,.14)" stroke-width=".5"/>
+            <rect x="130" y="146" width="107" height="44" rx="4" fill="rgba(61,122,92,.1)" stroke="rgba(61,122,92,.28)" stroke-width=".5"/>
+            <rect x="247" y="146" width="119" height="44" rx="4" fill="#0e1812" stroke="rgba(61,122,92,.14)" stroke-width=".5"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Site · Telecomunicações" data-en="Website · Telecom">Site · Telecomunicações</span>
+          <h3 class="proj-card-name">Wifi-Pró</h3>
+          <p class="proj-card-desc" data-pt="Design de site e materiais de mídia para provedor de internet, com clareza de planos e foco em conversão." data-en="Website design and media materials for an internet provider, with plan clarity and conversion focus.">Design de site e materiais de mídia para provedor de internet, com clareza de planos e foco em conversão.</p>
+          <div class="tags-row"><span class="tag">Web</span><span class="tag">Mídias</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="projects/cardapio.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="200" fill="#0f1a10"/>
+            <rect width="380" height="36" fill="#0a120b"/>
+            <rect x="14" y="9" width="70" height="18" rx="3" fill="rgba(61,122,92,.55)"/>
+            <rect x="14" y="52" width="160" height="18" rx="2" fill="rgba(255,255,255,.72)"/>
+            <rect x="14" y="78" width="120" height="7" rx="2" fill="rgba(255,255,255,.14)"/>
+            <rect x="14" y="100" width="60" height="10" rx="2" fill="rgba(212,168,83,.6)"/>
+            <rect x="14" y="116" width="80" height="24" rx="4" fill="rgba(61,122,92,.55)"/>
+            <!-- menu items -->
+            <rect x="14" y="152" width="170" height="38" rx="4" fill="#111d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="26" y="162" width="32" height="18" rx="3" fill="rgba(212,168,83,.12)"/>
+            <rect x="64" y="163" width="60" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="64" y="175" width="40" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="140" y="163" width="30" height="14" rx="3" fill="rgba(61,122,92,.35)"/>
+            <rect x="196" y="152" width="170" height="38" rx="4" fill="#111d12" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+            <rect x="208" y="162" width="32" height="18" rx="3" fill="rgba(212,168,83,.12)"/>
+            <rect x="246" y="163" width="60" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="246" y="175" width="40" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="324" y="163" width="30" height="14" rx="3" fill="rgba(212,168,83,.25)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Cardápio Digital · UX" data-en="Digital Menu · UX">Cardápio Digital · UX</span>
+          <h3 class="proj-card-name" data-pt="Cardápio My Deli" data-en="My Deli Menu">Cardápio My Deli</h3>
+          <p class="proj-card-desc" data-pt="Cardápio digital e peças de social media para o cliente My Deli Market, com linguagem visual gastronômica e moderna." data-en="Digital menu and social media pieces for My Deli Market, with modern gastronomic visual language.">Cardápio digital e peças de social media para o cliente My Deli Market, com linguagem visual gastronômica e moderna.</p>
+          <div class="tags-row"><span class="tag">Cardápio</span><span class="tag">Social</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div><!-- /panel-ux -->
+
+  <!-- ── TAB: MARCA ── -->
+  <div class="portfolio-panel" id="panel-marca">
+    <div class="proj-grid-3 rv" style="border-top:0.5px solid var(--line)">
+      <!-- Vocis -->
+      <a class="proj-card" href="projects/vocis.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0a0f18"/>
+            <circle cx="190" cy="100" r="80" fill="rgba(59,108,181,.06)" stroke="rgba(59,108,181,.12)" stroke-width=".5"/>
+            <circle cx="190" cy="100" r="52" fill="rgba(59,108,181,.08)" stroke="rgba(59,108,181,.16)" stroke-width=".5"/>
+            <circle cx="190" cy="100" r="28" fill="rgba(59,108,181,.14)"/>
+            <path d="M172 100 L190 76 L208 100 L190 114Z" fill="rgba(59,108,181,.8)" stroke="rgba(59,108,181,1)" stroke-width=".5"/>
+            <rect x="80" y="168" width="220" height="3" rx="1.5" fill="rgba(255,255,255,.06)"/>
+            <rect x="100" y="178" width="180" height="12" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="120" y="198" width="140" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="60" y="216" width="40" height="16" rx="2" fill="rgba(59,108,181,.8)"/>
+            <rect x="108" y="216" width="40" height="16" rx="2" fill="rgba(59,108,181,.4)"/>
+            <rect x="156" y="216" width="40" height="16" rx="2" fill="rgba(255,255,255,.12)"/>
+            <rect x="204" y="216" width="40" height="16" rx="2" fill="rgba(212,168,83,.5)"/>
+            <rect x="252" y="216" width="40" height="16" rx="2" fill="#0a0f18" stroke="rgba(255,255,255,.14)" stroke-width=".5"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat">Branding</span>
+          <h3 class="proj-card-name">Vocis Brandbook</h3>
+          <p class="proj-card-desc" data-pt="Identidade visual completa com brandbook detalhado, sistema visual e guidelines de aplicação para a Vocis." data-en="Complete visual identity with detailed brandbook, visual system and application guidelines for Vocis.">Identidade visual completa com brandbook detalhado, sistema visual e guidelines de aplicação para a Vocis.</p>
+          <div class="tags-row"><span class="tag">Identidade</span><span class="tag">Brandbook</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <!-- Evolutec -->
+      <a class="proj-card" href="projects/evolutec.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0d0d0d"/>
+            <line x1="0" y1="60" x2="380" y2="60" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <line x1="0" y1="120" x2="380" y2="120" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <line x1="0" y1="180" x2="380" y2="180" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <line x1="95" y1="0" x2="95" y2="240" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <line x1="190" y1="0" x2="190" y2="240" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <line x1="285" y1="0" x2="285" y2="240" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+            <rect x="140" y="60" width="100" height="100" rx="8" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.2)" stroke-width=".5"/>
+            <path d="M160 110 L190 82 L220 110 L190 138Z" fill="rgba(212,168,83,.55)"/>
+            <rect x="100" y="176" width="180" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="0" y="222" width="76" height="14" fill="rgba(212,168,83,.8)"/>
+            <rect x="76" y="222" width="76" height="14" fill="rgba(212,168,83,.4)"/>
+            <rect x="152" y="222" width="76" height="14" fill="#1a1a1a"/>
+            <rect x="228" y="222" width="76" height="14" fill="#f0ede8" opacity=".9"/>
+            <rect x="304" y="222" width="76" height="14" fill="rgba(212,168,83,.14)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat">Branding · Tech</span>
+          <h3 class="proj-card-name">Evolutec Brandbook</h3>
+          <p class="proj-card-desc" data-pt="Identidade visual e brandbook para empresa de tecnologia, com sistema de design e aplicações institucionais." data-en="Visual identity and brandbook for a technology company, with design system and institutional applications.">Identidade visual e brandbook para empresa de tecnologia, com sistema de design e aplicações institucionais.</p>
+          <div class="tags-row"><span class="tag">Tech</span><span class="tag">System</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <!-- Essência do Cerrado -->
+      <a class="proj-card" href="projects/cerrado.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0e1208"/>
+            <ellipse cx="190" cy="120" rx="150" ry="130" fill="rgba(80,120,40,.05)"/>
+            <path d="M180 200 Q190 80 200 200" stroke="rgba(80,120,40,.35)" stroke-width="2" fill="none"/>
+            <path d="M180 200 Q150 130 120 100" stroke="rgba(80,120,40,.22)" stroke-width="1.5" fill="none"/>
+            <path d="M200 200 Q230 140 260 110" stroke="rgba(80,120,40,.22)" stroke-width="1.5" fill="none"/>
+            <circle cx="190" cy="80" r="9" fill="rgba(212,168,83,.5)"/>
+            <circle cx="120" cy="100" r="5" fill="rgba(80,120,40,.55)"/>
+            <circle cx="260" cy="110" r="5" fill="rgba(80,120,40,.55)"/>
+            <rect x="30" y="40" width="140" height="8" rx="2" fill="rgba(212,168,83,.45)"/>
+            <rect x="30" y="56" width="200" height="22" rx="2" fill="rgba(255,255,255,.7)"/>
+            <rect x="30" y="86" width="160" height="7" rx="2" fill="rgba(255,255,255,.12)"/>
+            <rect x="270" y="34" width="80" height="80" rx="40" fill="rgba(80,120,40,.06)" stroke="rgba(80,120,40,.14)" stroke-width=".5"/>
+            <path d="M290 74 Q310 56 330 74 Q310 92 290 74Z" fill="rgba(212,168,83,.45)"/>
+            <rect x="20" y="210" width="80" height="20" rx="3" fill="rgba(80,120,40,.2)" stroke="rgba(80,120,40,.3)" stroke-width=".5"/>
+            <rect x="108" y="210" width="80" height="20" rx="3" fill="rgba(212,168,83,.15)" stroke="rgba(212,168,83,.25)" stroke-width=".5"/>
+            <rect x="196" y="210" width="80" height="20" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Branding · Conceito" data-en="Branding · Concept">Branding · Conceito</span>
+          <h3 class="proj-card-name">Essência do Cerrado</h3>
+          <p class="proj-card-desc" data-pt="Criação do conceito de marca e apresentação para a construtora Tenda, com identidade inspirada no cerrado brasileiro." data-en="Brand concept creation and pitch presentation for Construtora Tenda, with identity inspired by the Brazilian savanna.">Criação do conceito de marca e apresentação para a construtora Tenda, com identidade inspirada no cerrado brasileiro.</p>
+          <div class="tags-row"><span class="tag">Conceito</span><span class="tag">Pitch</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+    <!-- Behance brands -->
+    <div class="proj-grid-2col rv">
+      <a class="proj-card" href="https://www.behance.net/gallery/48863623/Identidade-Visual-Reformar" target="_blank">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="200" fill="#1a1510"/>
+            <rect x="60" y="40" width="260" height="120" rx="8" fill="rgba(212,168,83,.06)" stroke="rgba(212,168,83,.14)" stroke-width=".5"/>
+            <rect x="80" y="70" width="100" height="60" rx="4" fill="rgba(212,168,83,.1)"/>
+            <path d="M100 90 L130 70 L160 90 L130 110Z" fill="rgba(212,168,83,.5)"/>
+            <rect x="196" y="76" width="100" height="10" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="196" y="94" width="80" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+            <rect x="196" y="110" width="60" height="14" rx="3" fill="rgba(212,168,83,.25)"/>
+            <rect x="60" y="172" width="260" height="1" fill="rgba(255,255,255,.06)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat">Identidade Visual</span>
+          <h3 class="proj-card-name">Reformar</h3>
+          <p class="proj-card-desc" data-pt="Desenvolvimento completo de identidade visual para empresa de reformas, incluindo marca, paleta e aplicações." data-en="Complete visual identity for a renovation company, including brand mark, palette and applications.">Desenvolvimento completo de identidade visual para empresa de reformas.</p>
+          <div class="tags-row"><span class="tag">Behance</span><span class="tag">Branding</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="https://www.behance.net/gallery/48826839/Identidade-visual-Dani-Argolo" target="_blank">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="200" fill="#140e18"/>
+            <rect x="60" y="40" width="260" height="120" rx="8" fill="rgba(180,100,220,.05)" stroke="rgba(180,100,220,.12)" stroke-width=".5"/>
+            <circle cx="190" cy="100" r="40" fill="rgba(180,100,220,.08)" stroke="rgba(180,100,220,.18)" stroke-width=".5"/>
+            <path d="M170 100 Q190 75 210 100 Q190 125 170 100Z" fill="rgba(180,100,220,.5)"/>
+            <rect x="80" y="165" width="220" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat">Marca Pessoal</span>
+          <h3 class="proj-card-name">Dani Argôlo</h3>
+          <p class="proj-card-desc" data-pt="Marca pessoal para profissional criativa, com estética elegante e moderna que comunica sua essência." data-en="Personal brand for a creative professional, with elegant and modern aesthetic that communicates her essence.">Marca pessoal para profissional criativa, com estética elegante e moderna.</p>
+          <div class="tags-row"><span class="tag">Behance</span><span class="tag">Marca Pessoal</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div><!-- /panel-marca -->
+
+  <!-- ── TAB: CRIATIVOS ── -->
+  <div class="portfolio-panel" id="panel-criativos">
+    <div class="proj-grid-3 rv" style="border-top:0.5px solid var(--line)">
+      <a class="proj-card" href="projects/foozi.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0f0a0a"/>
+            <rect x="20" y="20" width="100" height="200" rx="8" fill="#1a1010" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+            <rect x="28" y="28" width="84" height="84" rx="4" fill="rgba(201,79,59,.1)"/>
+            <circle cx="70" cy="70" r="30" fill="rgba(201,79,59,.22)" stroke="rgba(201,79,59,.35)" stroke-width=".5"/>
+            <path d="M55 70 Q70 52 85 70 Q70 88 55 70Z" fill="rgba(201,79,59,.65)"/>
+            <rect x="28" y="122" width="60" height="7" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="28" y="135" width="84" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="28" y="160" width="84" height="16" rx="4" fill="rgba(201,79,59,.3)"/>
+            <rect x="136" y="20" width="100" height="96" rx="8" fill="#1a1010" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+            <rect x="144" y="28" width="84" height="52" rx="4" fill="rgba(201,79,59,.1)"/>
+            <rect x="144" y="88" width="60" height="7" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="144" y="100" width="80" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="136" y="130" width="100" height="90" rx="8" fill="#1a1010" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+            <rect x="144" y="138" width="84" height="46" rx="4" fill="rgba(212,168,83,.08)"/>
+            <rect x="144" y="192" width="60" height="7" rx="2" fill="rgba(212,168,83,.45)"/>
+            <rect x="252" y="20" width="108" height="200" rx="8" fill="#1a1010" stroke="rgba(255,255,255,.07)" stroke-width=".5"/>
+            <rect x="260" y="28" width="92" height="92" rx="4" fill="rgba(201,79,59,.08)"/>
+            <circle cx="306" cy="74" r="34" fill="rgba(201,79,59,.14)" stroke="rgba(201,79,59,.22)" stroke-width=".5"/>
+            <rect x="260" y="130" width="60" height="7" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="260" y="143" width="92" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Social Media" data-en="Social Media">Social Media</span>
+          <h3 class="proj-card-name">Foozi Social</h3>
+          <p class="proj-card-desc" data-pt="Sistema de peças para redes sociais da Foozi, com linguagem visual coesa e identidade de marca forte." data-en="Social media piece system for Foozi, with cohesive visual language and strong brand identity.">Sistema de peças para redes sociais da Foozi, com linguagem visual coesa e identidade de marca forte.</p>
+          <div class="tags-row"><span class="tag">Social</span><span class="tag">Feed</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="https://www.behance.net/gallery/48827111/Comunicacao-Visual-Adore-Pet" target="_blank">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0e1218"/>
+            <circle cx="190" cy="108" r="70" fill="rgba(80,150,200,.05)" stroke="rgba(80,150,200,.1)" stroke-width=".5"/>
+            <path d="M160 108 Q190 76 220 108 Q190 140 160 108Z" fill="rgba(80,150,200,.5)"/>
+            <rect x="80" y="175" width="220" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="100" y="192" width="180" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="60" y="210" width="40" height="16" rx="3" fill="rgba(80,150,200,.4)"/>
+            <rect x="108" y="210" width="40" height="16" rx="3" fill="rgba(255,255,255,.1)"/>
+            <rect x="156" y="210" width="40" height="16" rx="3" fill="rgba(80,150,200,.2)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Comunicação Visual" data-en="Visual Communication">Comunicação Visual</span>
+          <h3 class="proj-card-name">Adore Pet</h3>
+          <p class="proj-card-desc" data-pt="Comunicação visual e identidade para Adore Pet, com linguagem acolhedora e próxima do público." data-en="Visual communication and identity for Adore Pet, with welcoming and audience-friendly language.">Comunicação visual e identidade para Adore Pet, com linguagem acolhedora e próxima do público.</p>
+          <div class="tags-row"><span class="tag">Behance</span><span class="tag">Comunicação</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="https://www.behance.net/gallery/48834357/Comunicacao-Institucional-Academia-Gavioes" target="_blank">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#100a08"/>
+            <rect x="30" y="30" width="320" height="160" rx="8" fill="rgba(201,79,59,.06)" stroke="rgba(201,79,59,.12)" stroke-width=".5"/>
+            <rect x="50" y="60" width="130" height="100" rx="4" fill="rgba(201,79,59,.1)"/>
+            <path d="M80 110 Q115 72 150 110 Q115 148 80 110Z" fill="rgba(201,79,59,.55)"/>
+            <rect x="198" y="72" width="120" height="10" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="198" y="90" width="100" height="8" rx="2" fill="rgba(255,255,255,.1)"/>
+            <rect x="198" y="106" width="80" height="8" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="198" y="130" width="90" height="20" rx="3" fill="rgba(201,79,59,.3)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Comunicação Institucional" data-en="Institutional Communication">Comunicação Institucional</span>
+          <h3 class="proj-card-name">Academia Gaviões</h3>
+          <p class="proj-card-desc" data-pt="Desenvolvimento de comunicação institucional para academia, criando coesão visual e peças de alto impacto." data-en="Institutional communication for a gym, creating visual cohesion and high-impact materials.">Desenvolvimento de comunicação institucional para academia, criando coesão visual e peças de alto impacto.</p>
+          <div class="tags-row"><span class="tag">Behance</span><span class="tag">Institucional</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div><!-- /panel-criativos -->
+
+  <!-- ── TAB: IMPRESSOS ── -->
+  <div class="portfolio-panel" id="panel-impressos">
+    <div class="proj-grid-3 rv" style="border-top:0.5px solid var(--line)">
+      <a class="proj-card" href="projects/foozi.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0a0808"/>
+            <!-- folder/brochure mockup -->
+            <rect x="60" y="30" width="260" height="180" rx="4" fill="#181010" stroke="rgba(201,79,59,.15)" stroke-width=".5"/>
+            <rect x="60" y="30" width="130" height="180" rx="0" fill="rgba(201,79,59,.07)"/>
+            <line x1="190" y1="30" x2="190" y2="210" stroke="rgba(201,79,59,.14)" stroke-width=".5"/>
+            <rect x="76" y="52" width="98" height="60" rx="3" fill="rgba(201,79,59,.1)"/>
+            <path d="M96 82 Q125 55 154 82 Q125 109 96 82Z" fill="rgba(201,79,59,.55)"/>
+            <rect x="76" y="124" width="60" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="76" y="138" width="98" height="6" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="76" y="150" width="80" height="6" rx="2" fill="rgba(255,255,255,.05)"/>
+            <rect x="204" y="52" width="98" height="8" rx="2" fill="rgba(201,79,59,.4)"/>
+            <rect x="204" y="66" width="98" height="100" rx="3" fill="rgba(255,255,255,.03)"/>
+            <rect x="210" y="72" width="86" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+            <rect x="210" y="84" width="80" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="210" y="94" width="86" height="5" rx="2" fill="rgba(255,255,255,.06)"/>
+            <rect x="210" y="104" width="70" height="5" rx="2" fill="rgba(255,255,255,.06)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Impressos · Foozi" data-en="Print · Foozi">Impressos · Foozi</span>
+          <h3 class="proj-card-name" data-pt="Materiais Gráficos Foozi" data-en="Foozi Print Materials">Materiais Gráficos Foozi</h3>
+          <p class="proj-card-desc" data-pt="Materiais impressos para a Foozi: folders, flyers e peças de ponto de venda com linguagem visual consistente." data-en="Print materials for Foozi: folders, flyers and point-of-sale pieces with consistent visual language.">Materiais impressos para a Foozi: folders, flyers e peças de ponto de venda.</p>
+          <div class="tags-row"><span class="tag">Folder</span><span class="tag">PDV</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="projects/cardapio.html">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0f1a10"/>
+            <!-- cardapio book mockup -->
+            <rect x="80" y="20" width="220" height="200" rx="4" fill="#111d12" stroke="rgba(61,122,92,.14)" stroke-width=".5"/>
+            <rect x="80" y="20" width="8" height="200" rx="0" fill="rgba(61,122,92,.2)"/>
+            <rect x="96" y="36" width="188" height="120" rx="3" fill="rgba(61,122,92,.07)"/>
+            <circle cx="190" cy="96" r="40" fill="rgba(212,168,83,.1)" stroke="rgba(212,168,83,.22)" stroke-width=".5"/>
+            <path d="M170 96 Q190 68 210 96 Q190 124 170 96Z" fill="rgba(212,168,83,.5)"/>
+            <rect x="96" y="168" width="90" height="10" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="96" y="184" width="188" height="6" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="96" y="196" width="150" height="6" rx="2" fill="rgba(255,255,255,.05)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Cardápio Impresso" data-en="Printed Menu">Cardápio Impresso</span>
+          <h3 class="proj-card-name" data-pt="Cardápio My Deli" data-en="My Deli Printed Menu">Cardápio My Deli</h3>
+          <p class="proj-card-desc" data-pt="Cardápio impresso para o My Deli Market, com curadoria visual de produtos e hierarquia de informação clara." data-en="Printed menu for My Deli Market, with curated product visuals and clear information hierarchy.">Cardápio impresso para o My Deli Market, com curadoria visual de produtos e hierarquia clara.</p>
+          <div class="tags-row"><span class="tag">Cardápio</span><span class="tag">Editorial</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+      <a class="proj-card" href="https://www.behance.net/gallery/48837005/Identidade-Visual-RSF" target="_blank">
+        <div class="proj-card-thumb">
+          <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="380" height="240" fill="#0d1020"/>
+            <rect x="60" y="30" width="260" height="180" rx="4" fill="#111525" stroke="rgba(59,108,181,.12)" stroke-width=".5"/>
+            <rect x="76" y="48" width="228" height="110" rx="3" fill="rgba(59,108,181,.06)"/>
+            <rect x="100" y="68" width="80" height="70" rx="3" fill="rgba(59,108,181,.12)"/>
+            <path d="M118 103 L140 78 L162 103 L140 128Z" fill="rgba(59,108,181,.6)"/>
+            <rect x="196" y="74" width="90" height="8" rx="2" fill="rgba(255,255,255,.22)"/>
+            <rect x="196" y="90" width="70" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+            <rect x="196" y="104" width="80" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+            <rect x="196" y="120" width="60" height="16" rx="3" fill="rgba(59,108,181,.3)"/>
+            <rect x="76" y="168" width="60" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="76" y="182" width="228" height="6" rx="2" fill="rgba(255,255,255,.07)"/>
+          </svg>
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-cat" data-pt="Identidade · Impressos" data-en="Identity · Print">Identidade · Impressos</span>
+          <h3 class="proj-card-name">RSF</h3>
+          <p class="proj-card-desc" data-pt="Identidade visual e aplicações em impressos para a RSF, com foco em modernidade e aplicabilidade em múltiplos suportes." data-en="Visual identity and print applications for RSF, focused on modernity and applicability across multiple formats.">Identidade visual e aplicações em impressos para a RSF, com foco em modernidade e múltiplos suportes.</p>
+          <div class="tags-row"><span class="tag">Behance</span><span class="tag">Identidade</span></div>
+          <span class="proj-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div><!-- /panel-impressos -->
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about" class="sec-pad" style="border-top:0.5px solid var(--line)">
+  <div class="sec-header rv">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title" data-pt-html="Sobre <em>mim</em>" data-en-html="About <em>me</em>">Sobre <em>mim</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div class="about-layout">
+    <div class="about-visual-col rv2">
+      <div class="portrait-frame">
+        <span class="portrait-initials">EA</span>
+        <div class="portrait-badge">
+          <p class="pb-name">Elvis Almeida</p>
+          <p class="pb-role" data-pt="Design Lead · Cariacica, ES" data-en="Design Lead · Cariacica, ES">Design Lead · Cariacica, ES</p>
+        </div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-icon">✦</div>
+        <div>
+          <p class="ai-title" data-pt="IA no processo criativo" data-en="AI in the creative process">IA no processo criativo</p>
+          <p class="ai-text" data-pt="Uso ativo de Midjourney, Claude, ChatGPT e Stable Diffusion em todas as etapas — do conceito à entrega final." data-en="Active use of Midjourney, Claude, ChatGPT and Stable Diffusion at every stage — from concept to final delivery.">Uso ativo de Midjourney, Claude, ChatGPT e Stable Diffusion em todas as etapas — do conceito à entrega final.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-content rv">
+      <p class="about-intro" data-pt-html='Designer que acredita que bom design <em>resolve</em> — não apenas decora.' data-en-html='Designer who believes good design <em>solves</em> — it does not merely decorate.'>Designer que acredita que bom design <em>resolve</em> — não apenas decora.</p>
+      <div class="about-body">
+        <p data-pt="Com mais de 10 anos de atuação em design, passei por todas as etapas: do pixel ao estratégico. Hoje, como Design Lead, meu trabalho é tanto criar quanto orquestrar — liderar equipes, definir processos e conectar design com resultados de negócio." data-en="With over 10 years in design, I've worked at every level: from pixel to strategy. Today, as Design Lead, my work is as much about creating as orchestrating — leading teams, defining processes, and connecting design to business outcomes.">Com mais de 10 anos de atuação em design, passei por todas as etapas: do pixel ao estratégico. Hoje, como Design Lead, meu trabalho é tanto criar quanto orquestrar — liderar equipes, definir processos e conectar design com resultados de negócio.</p>
+        <p data-pt="Minha base é UX sólido — pesquisa, arquitetura de informação, prototipagem e testes. Meu diferencial é a visão de produto: entendo que design de liderança não é sobre fazer tudo, mas garantir que o time entregue o que importa." data-en="My foundation is solid UX — research, information architecture, prototyping and testing. My differentiator is product vision: leadership design is not about doing everything, but ensuring the team delivers what matters.">Minha base é UX sólido — pesquisa, arquitetura de informação, prototipagem e testes. Meu diferencial é a visão de produto: entendo que design de liderança não é sobre fazer tudo, mas garantir que o time entregue o que importa.</p>
+      </div>
+      <div class="leadership-box">
+        <p class="lb-tag" data-pt="Liderança Criativa" data-en="Creative Leadership">Liderança Criativa</p>
+        <p class="lb-title" data-pt="Gestão de equipes criativas com foco em resultado" data-en="Creative team management focused on outcomes">Gestão de equipes criativas com foco em resultado</p>
+        <p class="lb-body" data-pt="Experiência sólida na liderança de times multidisciplinares de design, equilibrando visão estratégica, processos ágeis e desenvolvimento de pessoas." data-en="Solid experience leading multidisciplinary design teams, balancing strategic vision, agile processes and people development.">Experiência sólida na liderança de times multidisciplinares de design, equilibrando visão estratégica, processos ágeis e desenvolvimento de pessoas.</p>
+        <ul class="lb-list">
+          <li data-pt="Estruturação de times criativos — processos, rituais e cultura" data-en="Building creative teams from scratch — processes, rituals and culture">Estruturação de times criativos — processos, rituais e cultura</li>
+          <li data-pt="Gestão de stakeholders e alinhamento entre design e negócio" data-en="Stakeholder management and alignment between design and business">Gestão de stakeholders e alinhamento entre design e negócio</li>
+          <li data-pt="Implementação de Design Systems e padrões escaláveis" data-en="Design Systems implementation and scalable standards">Implementação de Design Systems e padrões escaláveis</li>
+          <li data-pt="Mentoria e desenvolvimento de designers júnior e pleno" data-en="Mentoring and development of junior and mid-level designers">Mentoria e desenvolvimento de designers júnior e pleno</li>
+        </ul>
+      </div>
+      <div class="skills-grid">
+        <div class="sk"><div class="sk-name">UX Research</div><div class="sk-desc" data-pt="Entrevistas, testes, jornadas, personas" data-en="Interviews, testing, journeys, personas">Entrevistas, testes, jornadas, personas</div></div>
+        <div class="sk"><div class="sk-name">UI Design</div><div class="sk-desc" data-pt="Figma, sistemas de design, prototipagem" data-en="Figma, design systems, prototyping">Figma, sistemas de design, prototipagem</div></div>
+        <div class="sk"><div class="sk-name">Branding</div><div class="sk-desc" data-pt="Identidade visual, brandbook, guidelines" data-en="Visual identity, brandbook, guidelines">Identidade visual, brandbook, guidelines</div></div>
+        <div class="sk"><div class="sk-name">Design Lead</div><div class="sk-desc" data-pt="Gestão criativa, estratégia, time" data-en="Creative management, strategy, team">Gestão criativa, estratégia, time</div></div>
+        <div class="sk"><div class="sk-name">IA Generativa</div><div class="sk-desc">Midjourney, Claude, ChatGPT, SD</div></div>
+        <div class="sk"><div class="sk-name">Motion / Visual</div><div class="sk-desc">After Effects, Illustrator, Photoshop</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ EXPERIENCE ════════ -->
+<section id="experience" class="sec-pad" style="background:var(--bg2);transition:background .35s">
+  <div class="sec-header rv">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title" data-pt-html="Experi<em>ência</em>" data-en-html="Experi<em>ence</em>">Experi<em>ência</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div>
+    <div class="exp-row rv">
+      <div class="exp-date" data-pt="Atual" data-en="Current">Atual</div>
+      <div class="exp-body">
+        <h3 class="exp-role" data-pt="Coordenador de UX & Criação" data-en="UX & Creative Coordinator">Coordenador de UX & Criação</h3>
+        <span class="exp-co">Briefcase Wine</span>
+        <p class="exp-desc" data-pt="Liderança da área de UX e criação, coordenando equipes multidisciplinares e definindo as diretrizes de design dos produtos digitais e físicos. Responsável por toda a estratégia visual da marca e estruturação de processos criativos." data-en="Leadership of the UX and creative area, coordinating multidisciplinary teams and defining design guidelines for digital and physical products. Responsible for the entire visual strategy and creative process structure.">Liderança da área de UX e criação, coordenando equipes multidisciplinares e definindo as diretrizes de design dos produtos digitais e físicos. Responsável por toda a estratégia visual da marca e estruturação de processos criativos.</p>
+      </div>
+    </div>
+    <div class="exp-row rv">
+      <div class="exp-date" data-pt="Recente" data-en="Recent">Recente</div>
+      <div class="exp-body">
+        <h3 class="exp-role">Design Lead</h3>
+        <span class="exp-co" data-pt="Projetos Selecionados · Freelance" data-en="Selected Projects · Freelance">Projetos Selecionados · Freelance</span>
+        <p class="exp-desc" data-pt="Atuação como Design Lead em projetos de alto impacto: plataformas digitais (RWI, CPAPMed), identidades visuais estratégicas (Vocis, Evolutec, Essência do Cerrado), e-commerces e sites institucionais." data-en="Acting as Design Lead in high-impact projects: digital platforms (RWI, CPAPMed), strategic visual identities (Vocis, Evolutec, Essência do Cerrado), e-commerces and institutional websites.">Atuação como Design Lead em projetos de alto impacto: plataformas digitais (RWI, CPAPMed), identidades visuais estratégicas (Vocis, Evolutec, Essência do Cerrado), e-commerces e sites institucionais.</p>
+      </div>
+    </div>
+    <div class="exp-row rv">
+      <div class="exp-date" data-pt="Base" data-en="Foundation">Base</div>
+      <div class="exp-body">
+        <h3 class="exp-role" data-pt="Designer Gráfico & Visual" data-en="Graphic & Visual Designer">Designer Gráfico & Visual</h3>
+        <span class="exp-co" data-pt="Identidades, Comunicação & Branding" data-en="Identities, Communication & Branding">Identidades, Comunicação & Branding</span>
+        <p class="exp-desc" data-pt="Base sólida em design gráfico e identidade visual. Projetos para Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. Essa fundação em design visual informa toda a produção de UX atual." data-en="Strong foundation in graphic design and visual identity. Projects for Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. This visual design foundation informs all current UX work.">Base sólida em design gráfico e identidade visual. Projetos para Academia Gaviões, Adore Pet, RSF, Dani Argôlo, Dungeon Capixaba. Essa fundação em design visual informa toda a produção de UX atual.</p>
+      </div>
+    </div>
+    <div class="exp-row rv">
+      <div class="exp-date" data-pt="Contínuo" data-en="Ongoing">Contínuo</div>
+      <div class="exp-body">
+        <h3 class="exp-role" data-pt="IA Generativa Aplicada" data-en="Applied Generative AI">IA Generativa Aplicada</h3>
+        <span class="exp-co" data-pt="Fluxo criativo & Produção" data-en="Creative workflow & Production">Fluxo criativo & Produção</span>
+        <p class="exp-desc" data-pt="Uso sistemático de ferramentas de IA generativa como extensão do processo criativo: pesquisa visual, geração de conceitos, refinamento de interfaces e copywriting estratégico. Midjourney, Claude Code, ChatGPT e Stable Diffusion como parceiros de trabalho." data-en="Systematic use of generative AI tools as an extension of the creative process: visual research, concept generation, interface refinement and strategic copywriting. Midjourney, Claude Code, ChatGPT and Stable Diffusion as work partners.">Uso sistemático de ferramentas de IA generativa como extensão do processo criativo: pesquisa visual, geração de conceitos, refinamento de interfaces e copywriting estratégico. Midjourney, Claude Code, ChatGPT e Stable Diffusion como parceiros de trabalho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact" class="sec-pad">
+  <div class="sec-header rv">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title" data-pt-html="Vamos <em>criar</em>" data-en-html="Let's <em>create</em>">Vamos <em>criar</em></h2>
+    <div class="sec-hr"></div>
+  </div>
+  <div class="contact-layout">
+    <div class="rv2">
+      <p class="contact-big" data-pt-html="Tem um projeto<br>em <em>mente</em>?" data-en-html="Got a project<br>in <em>mind</em>?">Tem um projeto<br>em <em>mente</em>?</p>
+      <p class="contact-sub" data-pt="Estou sempre aberto a projetos, colaborações estratégicas e conversas sobre design, liderança criativa e experiência do usuário." data-en="I'm always open to projects, strategic collaborations and conversations about design, creative leadership and user experience.">Estou sempre aberto a projetos, colaborações estratégicas e conversas sobre design, liderança criativa e experiência do usuário.</p>
+    </div>
+    <div class="contact-links rv">
+      <a href="https://www.linkedin.com/in/elvis-almeida-10427256/" target="_blank" rel="noopener" class="clink">
+        <div class="clink-info">
+          <span class="clink-label" data-pt="Rede Profissional" data-en="Professional Network">Rede Profissional</span>
+          <span class="clink-name">LinkedIn</span>
+        </div>
+        <span class="clink-arr">→</span>
+      </a>
+      <a href="mailto:elvis.arte@gmail.com" class="clink">
+        <div class="clink-info">
+          <span class="clink-label" data-pt="Email" data-en="Email">Email</span>
+          <span class="clink-name">elvis.arte@gmail.com</span>
+        </div>
+        <span class="clink-arr">→</span>
+      </a>
+      <a href="tel:+5527981730694" class="clink">
+        <div class="clink-info">
+          <span class="clink-label" data-pt="WhatsApp / Telefone" data-en="WhatsApp / Phone">WhatsApp / Telefone</span>
+          <span class="clink-name">+55 27 98173-0694</span>
+        </div>
+        <span class="clink-arr">→</span>
+      </a>
+      <a href="https://www.behance.net/elvisarteefc4" target="_blank" rel="noopener" class="clink">
+        <div class="clink-info">
+          <span class="clink-label" data-pt="Portfólio Visual" data-en="Visual Portfolio">Portfólio Visual</span>
+          <span class="clink-name">Behance</span>
+        </div>
+        <span class="clink-arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p class="footer-copy" data-pt="© 2025 Elvis Almeida — Design Lead & UX Coordinator" data-en="© 2025 Elvis Almeida — Design Lead & UX Coordinator">© 2025 Elvis Almeida — Design Lead & UX Coordinator</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/elvis-almeida-10427256/" target="_blank">LinkedIn</a>
+    <a href="https://www.behance.net/elvisarteefc4" target="_blank">Behance</a>
+    <a href="#hero" data-pt="Topo ↑" data-en="Top ↑">Topo ↑</a>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Portfolio tabs
+document.querySelectorAll('.ptab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.portfolio-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    // re-trigger reveals in newly shown panel
+    document.querySelectorAll('#panel-' + btn.dataset.tab + ' .rv, #panel-' + btn.dataset.tab + ' .rv2').forEach(el => {
+      if (!el.classList.contains('on')) setTimeout(() => el.classList.add('on'), 80);
+    });
+  });
+});
+</script>
+</body>
+</html>
